@@ -20,7 +20,7 @@ namespace Engine.Factories
             _standardGameItems.Add(new GameItem(5001, "Bread", 1));
             _standardGameItems.Add(new GameItem(5002, "Prison Key", 3));
             _standardGameItems.Add(new GameItem(5003, "Rat Hair", 1));
-            _standardGameItems.Add(new GameItem(5003, "Rat Teeth", 2));
+            _standardGameItems.Add(new GameItem(5004, "Rat Teeth", 2));
         }
 
         public static GameItem CreateGameItem(int itemTypeID)
