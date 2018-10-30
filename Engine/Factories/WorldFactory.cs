@@ -29,6 +29,8 @@ namespace Engine.Factories
                 "Outdoor Activities Yard.",
                 "/Engine;component/Images/Locations/Courtyard.png");
 
+            newWorld.LocationAt(0, 0).AddMonster(1, 100);
+
             newWorld.AddLocation(2, 0, "Exit",
                 "Door is locked solid.",
                 "/Engine;component/Images/Locations/Door.png");
@@ -36,6 +38,8 @@ namespace Engine.Factories
             newWorld.AddLocation(-1, 0, "Cafeteria",
                 "The food looks disgusting.",
                 "/Engine;component/Images/Locations/Cafeteria.png");
+
+            newWorld.LocationAt(-1, 0).AddMonster(2, 100);
 
             newWorld.AddLocation(-2, 0, "Empty Cell",
                 "This cell looks recently abandoned.",
