@@ -15,7 +15,7 @@ namespace Engine.Factories
             {
                 case 1:
                     Monster AssassinRat =
-                        new Monster("Assassin Rat", "AssassinRat.png", 5, 5, 5, 2);
+                        new Monster("Assassin Rat", "AssassinRat.png", 5, 5, 1, 3, 5, 2);
 
                     AddLootItem(AssassinRat, 5001, 50);
                     AddLootItem(AssassinRat, 5003, 25);
@@ -25,7 +25,7 @@ namespace Engine.Factories
 
                 case 2:
                     Monster RogueRat =
-                        new Monster("Rogue Rat", "RogueRat.png", 5, 5, 5, 2);
+                        new Monster("Rogue Rat", "RogueRat.png", 5, 5, 1, 4, 5, 2);
 
                     AddLootItem(RogueRat, 5001, 50);
                     AddLootItem(RogueRat, 5003, 25);
