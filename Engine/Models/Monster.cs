@@ -38,7 +38,7 @@ namespace Engine.Models
             int rewardExpPoints, int rewardGold)
         {
             Name = name;
-            ImageName = string.Format("/Engine;component/Images/Monsters/{0}", imageName);
+            ImageName = string.Format($"/Engine;component/Images/Monsters/{imageName}");
             MaxHitPoints = maxHitPoints;
             HitPoints = hitPoints;
             MinDamage = minDamage;

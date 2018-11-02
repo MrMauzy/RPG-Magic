@@ -59,41 +59,21 @@ namespace Engine.ViewModels
 
         public Weapon CurrentWeapon { get; set; }
 
-        public bool HasLocationNorth
-        {
-            get
-            {
-                return CurrentWorld.LocationAt(CurrentLocation.XCoordinate, 
+        public bool HasLocationNorth =>
+            CurrentWorld.LocationAt(CurrentLocation.XCoordinate, 
                     CurrentLocation.YCoordinate + 1) != null;
-            }
-        }
 
-        public bool HasLocationEast
-        {
-            get
-            {
-                return CurrentWorld.LocationAt(CurrentLocation.XCoordinate - 1,
+        public bool HasLocationEast =>
+            CurrentWorld.LocationAt(CurrentLocation.XCoordinate - 1,
                     CurrentLocation.YCoordinate) != null;
-            }
-        }
 
-        public bool HasLocationWest
-        {
-            get
-            {
-                return CurrentWorld.LocationAt(CurrentLocation.XCoordinate + 1,
+        public bool HasLocationWest =>
+            CurrentWorld.LocationAt(CurrentLocation.XCoordinate + 1,
                     CurrentLocation.YCoordinate) != null;
-            }
-        }
 
-        public bool HasLocationSouth
-        {
-            get
-            {
-                return CurrentWorld.LocationAt(CurrentLocation.XCoordinate,
+        public bool HasLocationSouth => 
+            CurrentWorld.LocationAt(CurrentLocation.XCoordinate,
                     CurrentLocation.YCoordinate - 1) != null;
-            }
-        }
 
         public bool HasMonster => CurrentMonster != null;
 
@@ -112,13 +92,14 @@ namespace Engine.ViewModels
                 Level = 1
             };
 
+            if(!CurrentPlayer.Weapons.Any())
+            {
+                CurrentPlayer.Inventory.Add(ItemFactory.CreateGameItem(1001));
+            }
+
             CurrentWorld = WorldFactory.CreateWorld();
 
             CurrentLocation = CurrentWorld.LocationAt(1, 1);
-
-            CurrentPlayer.Inventory.Add(ItemFactory.CreateGameItem(1001));
-            //CurrentPlayer.Inventory.Add(ItemFactory.CreateGameItem(1001)); 
-            //CurrentPlayer.Inventory.Add(ItemFactory.CreateGameItem(1002)); 
         }
 
         public void MoveNorth()
@@ -237,7 +218,7 @@ namespace Engine.ViewModels
                     RaiseMessage("");
                     RaiseMessage($"The {CurrentMonster.Name} killed you.");
 
-                    CurrentLocation = CurrentWorld.LocationAt(0, -1); // Player's home
+                    CurrentLocation = CurrentWorld.LocationAt(1, 1); // Player's home
                     CurrentPlayer.HitPoints = CurrentPlayer.Level * 10; // Completely heal the player
                 }
             }
