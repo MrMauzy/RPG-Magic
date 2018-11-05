@@ -43,12 +43,14 @@
     <Compile Include="BaseNotificationClass.cs" />
     <Compile Include="EventArgs\GameMessageEventArgs.cs" />
     <Compile Include="Factories\ItemFactory.cs" />
+    <Compile Include="Factories\MagicFactory.cs" />
     <Compile Include="Factories\MonsterFactory.cs" />
     <Compile Include="Factories\QuestFactory.cs" />
     <Compile Include="Factories\WorldFactory.cs" />
     <Compile Include="Models\GameItem.cs" />
     <Compile Include="Models\ItemQuantity.cs" />
     <Compile Include="Models\Location.cs" />
+    <Compile Include="Models\Magic.cs" />
     <Compile Include="Models\Monster.cs" />
     <Compile Include="Models\MonsterEncounter.cs" />
     <Compile Include="Models\Player.cs" />
@@ -64,24 +66,15 @@
     <Resource Include="Images\UI\Book.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\Locations\prison.jpg" />
+    <Resource Include="Images\Locations\Cafeteria.jpg" />
+    <Resource Include="Images\Locations\Cell.jpg" />
+    <Resource Include="Images\Locations\Courtyard.jpg" />
+    <Resource Include="Images\Locations\Entry.jpg" />
+    <Resource Include="Images\Locations\Hallway.jpg" />
+    <Resource Include="Images\Locations\Lobby.jpg" />
+    <Resource Include="Images\Locations\Office.jpg" />
+    <Resource Include="Images\Locations\Outside.jpg" />
   </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\Locations\pixelCell.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\Locations\Courtyard.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\Locations\Lobby.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\Locations\Door.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\Locations\Cafeteria.png" />
-  </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <Resource Include="Images\Monsters\AssassinRat.png" />
     <Resource Include="Images\Monsters\RogueRat.png" />

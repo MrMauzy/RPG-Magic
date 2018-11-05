@@ -111,5 +111,16 @@
     <Resource Include="Image\Buttons\Right.png" />
     <Resource Include="Image\Buttons\Up.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\Buttons\Attack.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\Buttons\HPotion.png" />
+    <Resource Include="Image\Buttons\Key.png" />
+    <Resource Include="Image\Buttons\MPotion.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\Buttons\Magic.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

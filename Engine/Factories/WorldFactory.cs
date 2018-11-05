@@ -15,37 +15,45 @@ namespace Engine.Factories
 
             newWorld.AddLocation(1, 1, "Your Cell",
                 "This is your new home.",
-                "pixelCell.png");
+                "Cell.jpg");
 
             newWorld.AddLocation(1, 0, "Prison Lobby",
                 "This is where the guard hangout.",
-                "Lobby.png");
+                "Lobby.jpg");
 
             newWorld.AddLocation(1, -1, "Empty Cell",
                 "This Cell Looks to be Abandoned.",
-                "pixelCell.png");
+                "Cell.jpg");
 
             newWorld.AddLocation(0, 0, "Courtyard",
                 "Outdoor Activities Yard.",
-                "Courtyard.png");
+                "Courtyard.jpg");
 
             newWorld.LocationAt(0, 0).AddMonster(1, 100);
 
             newWorld.AddLocation(2, 0, "Exit",
-                "Door is locked solid.",
-                "Door.png");
+                "The Exit!",
+                "Entry.jpg");
 
             newWorld.AddLocation(-1, 0, "Cafeteria",
                 "The food looks disgusting.",
-                "Cafeteria.png");
+                "Cafeteria.jpg");
 
             newWorld.LocationAt(-1, 0).AddMonster(2, 100);
 
             newWorld.AddLocation(-2, 0, "Empty Cell",
                 "This cell looks recently abandoned.",
-                "pixelCell.png");
+                "Cell.jpg");
 
             newWorld.LocationAt(0, 0).QuestsAvaliable.Add(QuestFactory.GetQuestByID(1));
+
+            newWorld.AddLocation(-1, 1, "Office",
+                "Someone's office.",
+                "Office.jpg");
+
+            newWorld.AddLocation(-1, -1, "Secret Hallway",
+                "As Landon would say, I see nothing!",
+                "Hallway.jpg");
 
             return newWorld;
         }
