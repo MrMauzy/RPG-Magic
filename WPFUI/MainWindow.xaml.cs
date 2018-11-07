@@ -58,6 +58,11 @@ namespace WPFUI
             _gameSession.AttackCurrentMonster();
         }
 
+        private void OnClick_MagicAttackMonster(object sender, RoutedEventArgs e)
+        {
+            _gameSession.MagicAttackCurrentMonster();
+        }
+
         private void OnGameMessageRaised(object sender, GameMessageEventArgs e)
         {
             GameMessages.Document.Blocks.Add(new Paragraph(new Run(e.Message)));

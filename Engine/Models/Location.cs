@@ -35,6 +35,18 @@ namespace Engine.Models
             }
         }
 
+        public bool MonsterOnLocation()
+        {
+            if(MonsterHere.Any())
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
         public Monster GetMonster()
         {
             if(!MonsterHere.Any())

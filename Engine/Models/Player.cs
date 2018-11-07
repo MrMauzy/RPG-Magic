@@ -95,6 +95,11 @@ namespace Engine.Models
         public List<GameItem> Weapons =>
             Inventory.Where(i => i is Weapon).ToList();
 
+        public ObservableCollection<Magic> SpellList { get; set; }
+
+        public List<Magic> Spells =>
+            SpellList.Where(i => i is Magic).ToList();
+
         public ObservableCollection<QuestStatus> Quests { get; set; }
 
         #endregion
@@ -103,6 +108,7 @@ namespace Engine.Models
         {
             Inventory = new ObservableCollection<GameItem>();
             Quests = new ObservableCollection<QuestStatus>();
+            SpellList = new ObservableCollection<Magic>();
         }
 
         public void AddItemToInventory(GameItem item)

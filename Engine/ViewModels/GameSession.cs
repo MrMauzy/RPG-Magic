@@ -59,6 +59,8 @@ namespace Engine.ViewModels
 
         public Weapon CurrentWeapon { get; set; }
 
+        public Magic CurrentSpell { get; set; }
+
         public bool HasLocationNorth =>
             CurrentWorld.LocationAt(CurrentLocation.XCoordinate, 
                     CurrentLocation.YCoordinate + 1) != null;
@@ -95,6 +97,11 @@ namespace Engine.ViewModels
             if(!CurrentPlayer.Weapons.Any())
             {
                 CurrentPlayer.Inventory.Add(ItemFactory.CreateGameItem(1001));
+            }
+
+            if (!CurrentPlayer.Spells.Any())
+            {
+                CurrentPlayer.SpellList.Add(MagicFactory.CreateMagicSpell(8001));
             }
 
             CurrentWorld = WorldFactory.CreateWorld();
@@ -154,11 +161,35 @@ namespace Engine.ViewModels
             CurrentMonster = CurrentLocation.GetMonster();
         }
 
+        public void MagicAttackCurrentMonster()
+        {
+            if (CurrentLocation.MonsterOnLocation() == false)
+            {
+                RaiseMessage("Just who are you trying to Magically Attack?");
+                return;
+            }
+
+            if (CurrentSpell == null)
+            {
+                RaiseMessage("You must select a spell, to do the magics.");
+                return;
+            }
+
+            RaiseMessage("You don't know Magic");
+        }
+
         public void AttackCurrentMonster()
         {
+
+            if (CurrentLocation.MonsterOnLocation() == false)
+            {
+                RaiseMessage("There is no one to Attack. What are you doing man?");
+                return;
+            }
+
             if (CurrentWeapon == null)
             {
-                RaiseMessage("You must select a weapon, to attack.");
+                RaiseMessage("You do not know Karate, Please select a Weapon.");
                 return;
             }
 

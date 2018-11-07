@@ -31,7 +31,7 @@
         <!-- Player Information -->
         <Grid Grid.Row="1" Grid.Column="0">
             <Grid.Background>
-                <ImageBrush ImageSource="/Image/BlueBox.png"/>
+                <ImageBrush ImageSource="/Image/Locations/Graveyard.jpg" />
             </Grid.Background>
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" MinHeight="61"/>
@@ -65,7 +65,12 @@
         </Grid>
 
         <!-- Game Information -->
-        <Grid Grid.Row="1" Grid.Column="1" Background="Beige">
+        <Grid Grid.Row="1" Grid.Column="1">
+
+            <Grid.Background>
+                <ImageBrush ImageSource="/Image/Locations/Graveyard.jpg" />
+            </Grid.Background>
+
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
@@ -159,9 +164,12 @@
             </Border>
         </Grid>
 
-        <!-- Quests -->
-        <Grid Grid.Row="2" Grid.Column="0"
-              Background="WhiteSmoke">
+        <!-- Quests / Magic / Inventory -->
+        <Grid Grid.Row="2" Grid.Column="0">
+
+            <Grid.Background>
+                <ImageBrush ImageSource="/Image/Textures/BrownTexture.jpg" />
+            </Grid.Background>
 
             <TabControl>
                 <TabItem Header="Inventory">
@@ -169,11 +177,26 @@
                               AutoGenerateColumns="False"
                               HeadersVisibility="Column">
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="Description"
+                            <DataGridTextColumn Header="Collected Items"
                                                 Binding="{Binding Name}"
                                                 Width="*"/>
                             <DataGridTextColumn Header="Price"
                                                 Binding="{Binding Price}"
+                                                Width="Auto"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </TabItem>
+
+                <TabItem Header="Magic">
+                    <DataGrid ItemsSource="{Binding CurrentPlayer.SpellList}"
+                              AutoGenerateColumns="False"
+                              HeadersVisibility="Column">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Known Spells"
+                                                Binding="{Binding Name}"
+                                                Width="*"/>
+                            <DataGridTextColumn Header="Mana Cost"
+                                                Binding="{Binding ManaCost}"
                                                 Width="Auto"/>
                         </DataGrid.Columns>
                     </DataGrid>
@@ -198,8 +221,11 @@
         </Grid>
 
         <!-- Actions -->
-        <Grid Grid.Row="2" Grid.Column="1"
-              Background="Lavender">
+        <Grid Grid.Row="2" Grid.Column="1">
+            <Grid.Background>
+                <ImageBrush ImageSource="/Image/Textures/BrownTexture.jpg" />
+            </Grid.Background>
+            
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
@@ -211,9 +237,10 @@
 
             <!-- Combat Controls -->
             <Grid Grid.Row="0" Grid.Column="0"
-                  Visibility="{Binding HasMonster, Converter={StaticResource BooleanToVisibility}}"
+                  
                   HorizontalAlignment="Center"
                   VerticalAlignment="Center">
+                
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
@@ -241,12 +268,12 @@
                 </Button>
 
                 <ComboBox Grid.Row="2" Grid.Column="0"
-                          ItemsSource="{Binding CurrentPlayer.Weapons}"
-                          SelectedItem="{Binding CurrentWeapon}"
+                          ItemsSource="{Binding CurrentPlayer.SpellList}"
+                          SelectedItem="{Binding CurrentSpell}"
                           DisplayMemberPath="Name"
                           SelectedValuePath="ID"/>
                 <Button Grid.Row="2" Grid.Column="2"
-                        Click="OnClick_AttackMonster">
+                        Click="OnClick_MagicAttackMonster">
                     <StackPanel>
                         <Image Source="/Image/Buttons/Magic.png"/>
                     </StackPanel>
