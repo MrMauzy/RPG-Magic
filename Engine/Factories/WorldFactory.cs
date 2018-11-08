@@ -35,6 +35,8 @@ namespace Engine.Factories
                 "The Exit!",
                 "Entry.jpg");
 
+            newWorld.LocationAt(2, 0).AddMonster(3, 100);
+
             newWorld.AddLocation(-1, 0, "Cafeteria",
                 "The food looks disgusting.",
                 "Cafeteria.jpg");

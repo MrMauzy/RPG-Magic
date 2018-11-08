@@ -97,6 +97,7 @@ namespace Engine.ViewModels
             if(!CurrentPlayer.Weapons.Any())
             {
                 CurrentPlayer.Inventory.Add(ItemFactory.CreateGameItem(1001));
+                CurrentPlayer.Inventory.Add(ItemFactory.CreateGameItem(1005));
             }
 
             if (!CurrentPlayer.Spells.Any())

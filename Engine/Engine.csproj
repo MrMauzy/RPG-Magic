@@ -79,5 +79,20 @@
     <Resource Include="Images\Monsters\AssassinRat.png" />
     <Resource Include="Images\Monsters\RogueRat.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Monsters\GreenGoo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Monsters\Outlaw.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Monsters\ScoutMachine.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\UI\NoDown.png" />
+    <Resource Include="Images\UI\NoLeft.png" />
+    <Resource Include="Images\UI\NoRight.png" />
+    <Resource Include="Images\UI\NoUp.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

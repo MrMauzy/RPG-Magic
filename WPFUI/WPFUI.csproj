@@ -125,9 +125,23 @@
   <ItemGroup>
     <Resource Include="Image\Textures\BrownTexture.jpg" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
-    <Resource Include="Image\Locations\Graveyard.jpg" />
+    <Resource Include="Image\Textures\brick.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Image\Locations\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\Textures\wood.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\Textures\iron.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\Buttons\NoDown.png" />
+    <Resource Include="Image\Buttons\NoLeft.png" />
+    <Resource Include="Image\Buttons\NoRight.png" />
+    <Resource Include="Image\Buttons\NoUp.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

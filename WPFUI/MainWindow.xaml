@@ -6,11 +6,15 @@
         xmlns:viewModels="clr-namespace:Engine.ViewModels;assembly=Engine"
         d:DataContext="{d:DesignInstance viewModels:GameSession}"
         mc:Ignorable="d"
-        FontSize="11pt"
+        FontSize="14pt"
+        FontFamily="Franklin Gothic"
+        FontWeight="Bold"
         Title="RPG MAGIC" Height="768" Width="1024">
 
     <Window.Resources>
         <BooleanToVisibilityConverter x:Key="BooleanToVisibility" />
+        <Image x:Key="NoUp" Source="/Image/Buttons/NoUp.png" Height="75" Width="75"/>
+        <Image x:Key="Up" Source="/Image/Buttons/UP.png" Height="75" Width="75"/>
     </Window.Resources>
 
     <Grid>
@@ -31,7 +35,7 @@
         <!-- Player Information -->
         <Grid Grid.Row="1" Grid.Column="0">
             <Grid.Background>
-                <ImageBrush ImageSource="/Image/Locations/Graveyard.jpg" />
+                <ImageBrush ImageSource="/Image/Textures/wood.jpg" />
             </Grid.Background>
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" MinHeight="61"/>
@@ -49,26 +53,33 @@
             </Grid.ColumnDefinitions>
 
             <Label Grid.Row="0" Grid.Column="0" Content="Name:" Grid.ColumnSpan="2" Margin="31,30,-14,10" Grid.RowSpan="2"/>
-            <Label Grid.Row="0" Grid.Column="1" Content="{Binding CurrentPlayer.Name}" RenderTransformOrigin="1.234,0.849" Margin="80,30,-70,0"/>
+            <Label Grid.Row="0" Grid.Column="1" Content="{Binding CurrentPlayer.Name}" Margin="31,30,-14,10" 
+                   HorizontalContentAlignment="Right" HorizontalAlignment="Left" Width="137"/>
             <Label Grid.Row="1" Grid.Column="0" Content="Class:" Grid.ColumnSpan="2" Margin="31,30,-14,10" Grid.RowSpan="2"/>
-            <Label Grid.Row="1" Grid.Column="1" Content="{Binding CurrentPlayer.CharacterClass}" Margin="80,30,-65,2"/>
+            <Label Grid.Row="1" Grid.Column="1" Content="{Binding CurrentPlayer.CharacterClass}" Margin="31,30,-14,10"
+                   HorizontalContentAlignment="Right"/>
             <Label Grid.Row="2" Grid.Column="0" Content="Hit Points:" Grid.ColumnSpan="2" Margin="31,30,-14,10" Grid.RowSpan="2"/>
-            <Label Grid.Row="2" Grid.Column="1" Content="{Binding CurrentPlayer.HitPoints}" Margin="84,30,-84,3"/>
+            <Label Grid.Row="2" Grid.Column="1" Content="{Binding CurrentPlayer.HitPoints}" Margin="27,30,-10,10"
+                   HorizontalContentAlignment="Right"/>
             <Label Grid.Row="3" Grid.Column="0" Content="Magic:" Grid.ColumnSpan="2" Margin="31,30,-14,10" Grid.RowSpan="2"/>
-            <Label Grid.Row="3" Grid.Column="1" Content="{Binding CurrentPlayer.MagicPoints}" Margin="84,30,-84,2"/>
+            <Label Grid.Row="3" Grid.Column="1" Content="{Binding CurrentPlayer.MagicPoints}" Margin="27,30,-10,10"
+                   HorizontalContentAlignment="Right"/>
             <Label Grid.Row="4" Grid.Column="0" Content="XP:" Grid.ColumnSpan="2" Margin="31,30,-14,10" Grid.RowSpan="2"/>
-            <Label Grid.Row="4" Grid.Column="1" Content="{Binding CurrentPlayer.ExperiencePoints}" Margin="84,30,-70,2"/>
+            <Label Grid.Row="4" Content="{Binding CurrentPlayer.ExperiencePoints}" 
+                   HorizontalContentAlignment="Right" Margin="10,30,-10,41" Grid.Column="1" Grid.RowSpan="2"/>
             <Label Grid.Row="5" Grid.Column="0" Content="Level:" Grid.ColumnSpan="2" Margin="31,30,-14,10"/>
-            <Label Grid.Row="5" Grid.Column="1" Content="{Binding CurrentPlayer.Level}" Margin="84,30,-70,12"/>
+            <Label Grid.Row="5" Grid.Column="1" Content="{Binding CurrentPlayer.Level}" Margin="31,30,-14,10"
+                   HorizontalContentAlignment="Right"/>
             <Label Grid.Row="6" Grid.Column="0" Content="Gold:" Grid.ColumnSpan="2" Margin="31,10,-14,21"/>
-            <Label Grid.Row="6" Grid.Column="1" Content="{Binding CurrentPlayer.Gold}" Margin="84,10,-70,22" RenderTransformOrigin="0.539,-0.425" />
+            <Label Grid.Row="6" Grid.Column="1" Content="{Binding CurrentPlayer.Gold}"  Margin="31,10,-14,30"
+                   HorizontalContentAlignment="Right"/>
         </Grid>
 
         <!-- Game Information -->
         <Grid Grid.Row="1" Grid.Column="1">
 
             <Grid.Background>
-                <ImageBrush ImageSource="/Image/Locations/Graveyard.jpg" />
+                <ImageBrush ImageSource="/Image/Textures/brick.jpg" />
             </Grid.Background>
 
             <Grid.RowDefinitions>
@@ -149,8 +160,8 @@
                     <Image Grid.Row="1"
                            HorizontalAlignment="Center"
                            VerticalAlignment="Center"
-                           Height="125"
-                           Width="125"
+                           Height="175"
+                           Width="175"
                            Source="{Binding CurrentMonster.ImageName}" />
 
                     <StackPanel Grid.Row="2"
@@ -168,7 +179,7 @@
         <Grid Grid.Row="2" Grid.Column="0">
 
             <Grid.Background>
-                <ImageBrush ImageSource="/Image/Textures/BrownTexture.jpg" />
+                <ImageBrush ImageSource="/Image/Textures/iron.png" />
             </Grid.Background>
 
             <TabControl>
@@ -223,9 +234,9 @@
         <!-- Actions -->
         <Grid Grid.Row="2" Grid.Column="1">
             <Grid.Background>
-                <ImageBrush ImageSource="/Image/Textures/BrownTexture.jpg" />
+                <ImageBrush ImageSource="/Image/Textures/iron.png" />
             </Grid.Background>
-            
+
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
@@ -240,7 +251,7 @@
                   
                   HorizontalAlignment="Center"
                   VerticalAlignment="Center">
-                
+
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
@@ -313,36 +324,33 @@
                         <Image Source="/Image/Buttons/Key.png"/>
                     </StackPanel>
                 </Button>
-                
+
                 <!-- Movement Buttons -->
                 <Button Grid.Row="1" Grid.Column="1"
+                        Name="UpButton"
                         Height="75" Width="75"
-                        Click="OnClick_MoveNorth"
-                        Visibility="{Binding HasLocationNorth, Converter={StaticResource BooleanToVisibility}}">
+                        Click="OnClick_MoveNorth">
                     <StackPanel>
                         <Image Source="/Image/Buttons/Up.png"/>
                     </StackPanel>
                 </Button>
                 <Button Grid.Row="2" Grid.Column="0"
                         Height="75" Width="75"
-                        Click="OnClick_MoveWest"
-                        Visibility="{Binding HasLocationWest, Converter={StaticResource BooleanToVisibility}}">
+                        Click="OnClick_MoveWest">
                     <StackPanel>
                         <Image Source="/Image/Buttons/Left.png"/>
                     </StackPanel>
                 </Button>
                 <Button Grid.Row="2" Grid.Column="2"
                         Height="75" Width="75"
-                        Click="OnClick_MoveEast"
-                        Visibility="{Binding HasLocationEast, Converter={StaticResource BooleanToVisibility}}">
+                        Click="OnClick_MoveEast">
                     <StackPanel>
                         <Image Source="/Image/Buttons/Right.png"/>
                     </StackPanel>
                 </Button>
                 <Button Grid.Row="2" Grid.Column="1"
                         Height="75" Width="75"
-                        Click="OnClick_MoveSouth"
-                        Visibility="{Binding HasLocationSouth, Converter={StaticResource BooleanToVisibility}}">
+                        Click="OnClick_MoveSouth">
                     <StackPanel>
                         <Image Source="/Image/Buttons/Down.png"/>
                     </StackPanel>
