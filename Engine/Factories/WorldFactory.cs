@@ -47,7 +47,7 @@ namespace Engine.Factories
                 "This cell looks recently abandoned.",
                 "Cell.jpg");
 
-            newWorld.LocationAt(0, 0).QuestsAvaliable.Add(QuestFactory.GetQuestByID(1));
+            newWorld.LocationAt(-2, 0).QuestsAvaliable.Add(QuestFactory.GetQuestByID(1));
 
             newWorld.AddLocation(-1, 1, "Office",
                 "Someone's office.",

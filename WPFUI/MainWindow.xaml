@@ -13,8 +13,6 @@
 
     <Window.Resources>
         <BooleanToVisibilityConverter x:Key="BooleanToVisibility" />
-        <Image x:Key="NoUp" Source="/Image/Buttons/NoUp.png" Height="75" Width="75"/>
-        <Image x:Key="Up" Source="/Image/Buttons/UP.png" Height="75" Width="75"/>
     </Window.Resources>
 
     <Grid>
@@ -220,7 +218,13 @@
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="Name"
                                                 Binding="{Binding PlayerQuest.Name}"
-                                                Width="*"/>
+                                                Width="*">
+                                <DataGridTextColumn.ElementStyle>
+                                    <Style>
+                                        <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
+                                    </Style>
+                                </DataGridTextColumn.ElementStyle>
+                            </DataGridTextColumn>
                             <DataGridTextColumn Header="Done?"
                                                 Binding="{Binding IsCompleted}"
                                                 Width="Auto"/>
