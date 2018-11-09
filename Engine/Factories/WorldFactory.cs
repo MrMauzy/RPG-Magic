@@ -17,6 +17,9 @@ namespace Engine.Factories
                 "This is your new home.",
                 "Cell.jpg");
 
+            newWorld.LocationAt(1, 1).TraderHere =
+                TraderFactory.GetTraderByName("Shady Mouse");
+
             newWorld.AddLocation(1, 0, "Prison Lobby",
                 "This is where the guard hangout.",
                 "Lobby.jpg");
@@ -53,9 +56,15 @@ namespace Engine.Factories
                 "Someone's office.",
                 "Office.jpg");
 
+            newWorld.LocationAt(-1, 1).TraderHere =
+                TraderFactory.GetTraderByName("Old Guard");
+
             newWorld.AddLocation(-1, -1, "Secret Hallway",
                 "As Landon would say, I see nothing!",
                 "Hallway.jpg");
+
+            newWorld.LocationAt(-1, -1).TraderHere =
+                TraderFactory.GetTraderByName("Magical Trading Box");
 
             return newWorld;
         }

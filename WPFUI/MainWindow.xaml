@@ -329,10 +329,14 @@
                     </StackPanel>
                 </Button>
 
+                <!-- Trader Button -->
+                <Button Grid.Row="1" Grid.Column="0"
+                        Height="75" Width="75"
+                        Visibility="{Binding HasTrader, Converter={StaticResource BooleanToVisibility}}"
+                        Content="Trader"/>
+
                 <!-- Movement Buttons -->
                 <Button Grid.Row="1" Grid.Column="1"
-                        Name="UpButton"
-                        Height="75" Width="75"
                         Click="OnClick_MoveNorth">
                     <StackPanel>
                         <Image Source="/Image/Buttons/Up.png"/>

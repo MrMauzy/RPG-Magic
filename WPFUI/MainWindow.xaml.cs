@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using Engine.Models;
 using Engine.ViewModels;
 using Engine.EventArgs;
+using System.Globalization;
 
 namespace WPFUI
 {
