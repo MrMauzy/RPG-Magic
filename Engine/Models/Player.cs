@@ -66,9 +66,14 @@ namespace Engine.Models
 
         #endregion
 
-        public Player()
+        public Player(string name, string characterClass, int experiencePoints,
+            int maxHitPoints, int currentHitPoints, int magicPoints, int gold) :
+            base(name, maxHitPoints, currentHitPoints, gold)
         {
-            Inventory = new ObservableCollection<GameItem>();
+            MagicPoints = magicPoints;
+            CharacterClass = characterClass;
+            ExperiencePoints = experiencePoints;
+
             Quests = new ObservableCollection<QuestStatus>();
             SpellList = new ObservableCollection<Magic>();
         }

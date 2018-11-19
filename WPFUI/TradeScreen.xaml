@@ -42,7 +42,7 @@
 
         <DataGrid Grid.Row="2" Grid.Column="0"
                   Margin="10"
-                  ItemsSource="{Binding CurrentPlayer.Inventory}"
+                  ItemsSource="{Binding CurrentPlayer.GroupedInventory}"
                   AutoGenerateColumns="False"
                   HeadersVisibility="Column"
                   CanUserAddRows="False"
@@ -53,11 +53,15 @@
                 <DataGridTextColumn Header="Description"
                                     IsReadOnly="True"
                                     Width="*"
-                                    Binding="{Binding Path=Name}"/>
+                                    Binding="{Binding Item.Name}"/>
+                <DataGridTextColumn Header="Qty"
+                                    IsReadOnly="True"
+                                    Width="Auto"
+                                    Binding="{Binding Quantity}"/>
                 <DataGridTextColumn Header="Price"
                                     IsReadOnly="True"
                                     Width="Auto"
-                                    Binding="{Binding Path=Price}"/>
+                                    Binding="{Binding Item.Price}"/>
                 <DataGridTemplateColumn MinWidth="75">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
@@ -84,11 +88,15 @@
                 <DataGridTextColumn Header="Description"
                                     IsReadOnly="True"
                                     Width="*"
-                                    Binding="{Binding Path=Name}"/>
+                                    Binding="{Binding Item.Name}"/>
+                <DataGridTextColumn Header="Qty"
+                                    IsReadOnly="True"
+                                    Width="Auto"
+                                    Binding="{Binding Quantity}"/>
                 <DataGridTextColumn Header="Price"
                                     IsReadOnly="True"
                                     Width="Auto"
-                                    Binding="{Binding Path=Price}"/>
+                                    Binding="{Binding Item.Price}"/>
                 <DataGridTemplateColumn MinWidth="75">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
