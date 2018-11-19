@@ -30,6 +30,7 @@ namespace Engine.ViewModels
             {
                 if(_currentPlayer != null)
                 {
+                    _currentPlayer.OnLeveledUp -= OnCurrentPlayerLeveledUp;
                     _currentPlayer.OnKilled -= OnCurrentPlayerKilled;
                 }
 
@@ -37,6 +38,7 @@ namespace Engine.ViewModels
 
                 if(_currentPlayer != null)
                 {
+                    _currentPlayer.OnLeveledUp += OnCurrentPlayerLeveledUp;
                     _currentPlayer.OnKilled += OnCurrentPlayerKilled;
                 }
             }
@@ -132,8 +134,8 @@ namespace Engine.ViewModels
 
             if(!CurrentPlayer.Weapons.Any())
             {
-                CurrentPlayer.Inventory.Add(ItemFactory.CreateGameItem(1001));
-                CurrentPlayer.Inventory.Add(ItemFactory.CreateGameItem(1005));
+                CurrentPlayer.AddItemToInventory(ItemFactory.CreateGameItem(1001));
+                CurrentPlayer.AddItemToInventory(ItemFactory.CreateGameItem(1005));
             }
 
             if (!CurrentPlayer.Spells.Any())
@@ -207,7 +209,7 @@ namespace Engine.ViewModels
                         RaiseMessage($"You completed the '{quest.Name}' quest");
 
                         // Give the player the quest rewards
-                        CurrentPlayer.ExperiencePoints += quest.RewardExperiencePoints;
+                        CurrentPlayer.AddExperience(quest.RewardExperiencePoints);
                         RaiseMessage($"You receive {quest.RewardExperiencePoints} experience points");
 
                         CurrentPlayer.Gold += quest.RewardGold;
@@ -302,8 +304,8 @@ namespace Engine.ViewModels
             }
             else
             {
-                CurrentMonster.CurrentHitPoints -= damageToMonster;
                 RaiseMessage($"You hit the {CurrentMonster.Name} for {damageToMonster} points.");
+                CurrentMonster.TakeDamage(damageToMonster);
             }
 
             // If monster if killed, collect rewards and loot
@@ -344,7 +346,7 @@ namespace Engine.ViewModels
             RaiseMessage($"You defeated the {CurrentMonster.Name}.");
 
             RaiseMessage($"You receive {CurrentMonster.RewardExperiencePoints} experience point");
-            CurrentPlayer.ExperiencePoints += CurrentMonster.RewardExperiencePoints;
+            CurrentPlayer.AddExperience(CurrentMonster.RewardExperiencePoints);
 
             RaiseMessage($"You receive {CurrentMonster.Gold} gold");
             CurrentPlayer.ReceiveGold(CurrentMonster.Gold);
@@ -354,6 +356,11 @@ namespace Engine.ViewModels
                 RaiseMessage($"You receive one {gameItem}");
                 CurrentPlayer.AddItemToInventory(gameItem);
             }
+        }
+
+        private void OnCurrentPlayerLeveledUp(object sender, System.EventArgs eventArgs)
+        {
+            RaiseMessage($"You are now level {CurrentPlayer.Level}!");
         }
 
         private void RaiseMessage(string message)
