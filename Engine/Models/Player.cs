@@ -88,6 +88,11 @@ namespace Engine.Models
             ExperiencePoints += experiencePoints;
         }
 
+        public void SpendMana(int manaCost)
+        {
+            MagicPoints -= manaCost;
+        }
+
         private void SetLevelAndMaximumHitPoints()
         {
             int originalLevel = Level;

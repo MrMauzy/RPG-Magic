@@ -11,17 +11,19 @@ namespace Engine.Models
         public int MagicSpellID { get; set; }
         public string Name { get; set; }
         public int ManaCost { get; set; }
+        public int MagicDamage { get; set; }
 
-        public Magic(int magicSpellID, string name, int manaCost)
+        public Magic(int magicSpellID, string name, int manaCost, int magicDamage)
         {
             MagicSpellID = magicSpellID;
             Name = name;
             ManaCost = manaCost;
+            MagicDamage = magicDamage;
         }
 
         public Magic Clone()
         {
-            return new Magic(MagicSpellID, Name, ManaCost);
+            return new Magic(MagicSpellID, Name, ManaCost, MagicDamage);
         }
     }
 }

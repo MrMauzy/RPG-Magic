@@ -104,6 +104,7 @@ namespace Engine.Models
             }
         }
 
+
         public void Heal(int hitPointsToHeal)
         {
             CurrentHitPoints += hitPointsToHeal;

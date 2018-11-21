@@ -266,7 +266,7 @@ namespace Engine.ViewModels
 
         public void MagicAttackCurrentMonster()
         {
-            if (CurrentLocation.MonsterOnLocation() == false)
+            if (CurrentMonster == null)
             {
                 RaiseMessage("Just who are you trying to Magically Attack?");
                 return;
@@ -278,7 +278,40 @@ namespace Engine.ViewModels
                 return;
             }
 
-            RaiseMessage("You don't know Magic");
+            int magicDamageToMonster = CurrentSpell.MagicDamage;
+
+            if (CurrentPlayer.MagicPoints >= CurrentSpell.ManaCost)
+            {
+                RaiseMessage($"You attack with a {CurrentSpell.Name} spell and do {CurrentSpell.MagicDamage} damage.");
+                CurrentMonster.TakeDamage(magicDamageToMonster);
+                CurrentPlayer.SpendMana(CurrentSpell.ManaCost);
+            }
+            else
+            {
+                RaiseMessage($"You have insufficent mana to cast {CurrentSpell.Name}");
+            }
+
+            // If monster if killed, collect rewards and loot
+            if (CurrentMonster.IsDead)
+            {
+                GetMonsterAtLocation();
+            }
+            else
+            {
+                //Let the monster attack
+                int damageToPlayer = RandomNumberGenerator.NumberBetween(CurrentMonster.MinDamage,
+                    CurrentMonster.MaxDamage);
+
+                if (damageToPlayer == 0)
+                {
+                    RaiseMessage($"The {CurrentMonster.Name} attacks, but misses you");
+                }
+                else
+                {
+                    RaiseMessage($"The {CurrentMonster.Name} hit you for {damageToPlayer} points");
+                    CurrentPlayer.TakeDamage(damageToPlayer);
+                }
+            }
         }
 
         public void AttackCurrentMonster()
@@ -353,7 +386,7 @@ namespace Engine.ViewModels
 
             foreach (GameItem gameItem in CurrentMonster.Inventory)
             {
-                RaiseMessage($"You receive one {gameItem}");
+                RaiseMessage($"You receive one {gameItem.Name}");
                 CurrentPlayer.AddItemToInventory(gameItem);
             }
         }

@@ -13,9 +13,9 @@ namespace Engine.Factories
 
         static MagicFactory()
         {
-            _standardMagicSpells.Add(new Magic(8000, "Fireball", 5));
-            _standardMagicSpells.Add(new Magic(8001, "Lightning", 5));
-            _standardMagicSpells.Add(new Magic(8002, "Frost Bolt", 5));
+            _standardMagicSpells.Add(new Magic(8000, "Fireball", 5, 10));
+            _standardMagicSpells.Add(new Magic(8001, "Lightning", 5, 15));
+            _standardMagicSpells.Add(new Magic(8002, "Frost Bolt", 5, 20));
         }
 
         public static Magic CreateMagicSpell(int magicSpellID)
