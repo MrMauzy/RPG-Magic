@@ -70,6 +70,16 @@ namespace WPFUI
             GameMessages.ScrollToEnd();
         }
 
+        private void OnClick_ManaPotion(object sender, RoutedEventArgs e)
+        {
+            _gameSession.CurrentPlayer.FullManaRestore();
+        }
+
+        private void OnClick_HealthPotion(object sender, RoutedEventArgs e)
+        {
+            _gameSession.CurrentPlayer.CompleteHeal();
+        }
+
         private void OnClick_DisplayTradeScreen(object sender, RoutedEventArgs e)
         {
             TradeScreen tradeScreen = new TradeScreen();

@@ -21,7 +21,7 @@ namespace Engine.ViewModels
         private Monster _currentMonster;
         private Trader _currentTrader;
 
-        public World CurrentWorld { get; set; }
+        public World CurrentWorld { get; }
 
         public Player CurrentPlayer
         {
@@ -50,7 +50,7 @@ namespace Engine.ViewModels
             set
             {
                 _currentLocation = value;
-                OnPropertyChanged(nameof(CurrentLocation));
+                OnPropertyChanged();
                 OnPropertyChanged(nameof(HasLocationNorth));
                 OnPropertyChanged(nameof(HasLocationEast));
                 OnPropertyChanged(nameof(HasLocationWest));
@@ -85,7 +85,7 @@ namespace Engine.ViewModels
                     RaiseMessage($"You see a {CurrentMonster.Name} here!");
                 }
 
-                OnPropertyChanged(nameof(CurrentMonster));
+                OnPropertyChanged();
                 OnPropertyChanged(nameof(HasMonster));
             }
         }
@@ -97,7 +97,7 @@ namespace Engine.ViewModels
             {
                 _currentTrader = value;
 
-                OnPropertyChanged(nameof(CurrentTrader));
+                OnPropertyChanged();
                 OnPropertyChanged(nameof(HasTrader));
             }
         }
@@ -130,7 +130,7 @@ namespace Engine.ViewModels
 
         public GameSession()
         {
-            CurrentPlayer = new Player("Merek", "Wizard", 0, 20, 20, 20, 101);
+            CurrentPlayer = new Player("Merek", "Wizard", 0, 20, 20, 15, 15, 101);
 
             if(!CurrentPlayer.Weapons.Any())
             {
@@ -266,24 +266,25 @@ namespace Engine.ViewModels
 
         public void MagicAttackCurrentMonster()
         {
+            // Checks to make sure a Monster is on the location
             if (CurrentMonster == null)
             {
                 RaiseMessage("Just who are you trying to Magically Attack?");
                 return;
             }
 
+            // If there is no current spell it will give this error
             if (CurrentSpell == null)
             {
                 RaiseMessage("You must select a spell, to do the magics.");
                 return;
             }
 
-            int magicDamageToMonster = CurrentSpell.MagicDamage;
-
+            // Makes sure you have enough mana to cast spell
             if (CurrentPlayer.MagicPoints >= CurrentSpell.ManaCost)
             {
                 RaiseMessage($"You attack with a {CurrentSpell.Name} spell and do {CurrentSpell.MagicDamage} damage.");
-                CurrentMonster.TakeDamage(magicDamageToMonster);
+                CurrentMonster.TakeDamage(CurrentSpell.MagicDamage);
                 CurrentPlayer.SpendMana(CurrentSpell.ManaCost);
             }
             else
@@ -298,7 +299,7 @@ namespace Engine.ViewModels
             }
             else
             {
-                //Let the monster attack
+                // This is where the Monster will attack you
                 int damageToPlayer = RandomNumberGenerator.NumberBetween(CurrentMonster.MinDamage,
                     CurrentMonster.MaxDamage);
 

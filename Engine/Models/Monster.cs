@@ -9,11 +9,11 @@ namespace Engine.Models
 {
     public class Monster : LivingEntity
     {
-        public string ImageName { get; set; }
-        public int MinDamage { get; set; }
-        public int MaxDamage { get; set; }
+        public string ImageName { get; }
+        public int MinDamage { get; }
+        public int MaxDamage { get; }
 
-        public int RewardExperiencePoints { get; private set; }
+        public int RewardExperiencePoints { get; }
 
         public Monster(string name, string imageName,
             int maxHitPoints, int currentHitPoints,

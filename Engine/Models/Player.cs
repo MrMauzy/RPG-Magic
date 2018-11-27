@@ -15,6 +15,7 @@ namespace Engine.Models
         private string _characterClass;
         private int _magicPoints;
         private int _experiencePoints;
+        private int _maxMana;
 
         public string CharacterClass
         {
@@ -22,7 +23,7 @@ namespace Engine.Models
             set
             {
                 _characterClass = value;
-                OnPropertyChanged(nameof(CharacterClass));
+                OnPropertyChanged();
             }
         }
 
@@ -32,7 +33,7 @@ namespace Engine.Models
             private set
             {
                 _experiencePoints = value;
-                OnPropertyChanged(nameof(ExperiencePoints));
+                OnPropertyChanged();
 
                 SetLevelAndMaximumHitPoints();
             }
@@ -44,26 +45,38 @@ namespace Engine.Models
             set
             {
                 _magicPoints = value;
-                OnPropertyChanged(nameof(MagicPoints));
+                OnPropertyChanged();
             }
         }
 
-        public ObservableCollection<Magic> SpellList { get; set; }
+        public int MaxMana
+        {
+            get { return _maxMana; }
+            protected set
+            {
+                _maxMana = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public ObservableCollection<Magic> SpellList { get; }
 
         public List<Magic> Spells =>
             SpellList.Where(i => i is Magic).ToList();
 
-        public ObservableCollection<QuestStatus> Quests { get; set; }
+        public ObservableCollection<QuestStatus> Quests { get; }
 
         #endregion
 
         public event EventHandler OnLeveledUp;
 
         public Player(string name, string characterClass, int experiencePoints,
-            int maxHitPoints, int currentHitPoints, int magicPoints, int gold) :
+            int maxHitPoints, int currentHitPoints, int magicPoints, int maxMana,
+            int gold) :
             base(name, maxHitPoints, currentHitPoints, gold)
         {
             MagicPoints = magicPoints;
+            MaxMana = maxMana;
             CharacterClass = characterClass;
             ExperiencePoints = experiencePoints;
 
@@ -93,6 +106,11 @@ namespace Engine.Models
             MagicPoints -= manaCost;
         }
 
+        public void FullManaRestore()
+        {
+            MagicPoints = MaxMana;
+        }
+
         private void SetLevelAndMaximumHitPoints()
         {
             int originalLevel = Level;
@@ -102,6 +120,8 @@ namespace Engine.Models
             if(Level != originalLevel)
             {
                 MaxHitPoints = Level * 20;
+
+                MaxMana = Level * 9;
 
                 OnLeveledUp?.Invoke(this, System.EventArgs.Empty);
             }
