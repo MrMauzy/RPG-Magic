@@ -8,22 +8,36 @@ namespace Engine.Models
 {
     public class GameItem
     {
+        public enum ItemCategory
+        {
+            Miscellaneous,
+            Weapon
+        }
+
+        public ItemCategory Category { get; }
         public int ItemTypeID { get; }
         public string Name { get; }
         public int Price { get; }
         public bool IsUnique { get; }
+        public int MinDamage { get; }
+        public int MaxDamage { get; }
 
-        public GameItem(int itemTypeID, string name, int price, bool isUnique = false)
+        public GameItem(ItemCategory category, int itemTypeID, string name, int price, 
+            bool isUnique = false, int minDamage = 0, int maxDamage = 0)
         {
+            Category = category;
             ItemTypeID = itemTypeID;
             Name = name;
             Price = price;
             IsUnique = isUnique;
+            MinDamage = minDamage;
+            MaxDamage = maxDamage;
         }
 
         public GameItem Clone()
         {
-            return new GameItem(ItemTypeID, Name, Price, IsUnique);
+            return new GameItem(Category, ItemTypeID, Name, Price, IsUnique,
+                MinDamage, MaxDamage);
         }
     }
 }

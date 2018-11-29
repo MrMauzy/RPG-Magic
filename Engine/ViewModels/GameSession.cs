@@ -102,7 +102,7 @@ namespace Engine.ViewModels
             }
         }
 
-        public Weapon CurrentWeapon { get; set; }
+        public GameItem CurrentWeapon { get; set; }
 
         public Magic CurrentSpell { get; set; }
 
@@ -130,7 +130,7 @@ namespace Engine.ViewModels
 
         public GameSession()
         {
-            CurrentPlayer = new Player("Merek", "Wizard", 0, 20, 20, 15, 15, 101);
+            CurrentPlayer = new Player("Merek", "Wizard", 0, 20, 20, 9, 9, 101);
 
             if(!CurrentPlayer.Weapons.Any())
             {
@@ -368,10 +368,11 @@ namespace Engine.ViewModels
         private void OnCurrentPlayerKilled(object sender, System.EventArgs eventArgs)
         {
             RaiseMessage("");
-            RaiseMessage($"The {CurrentMonster.Name} has killed you");
+            RaiseMessage("You have been descimated and can no longer go on.");
 
             CurrentLocation = CurrentWorld.LocationAt(1, 1);
             CurrentPlayer.CompleteHeal();
+            CurrentPlayer.FullManaRestore();
         }
 
         private void OnCurrentMonsterKilled(object sender, System.EventArgs eventArgs)
