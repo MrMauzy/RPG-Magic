@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Engine.Models;
+using Engine.Actions;
 
 namespace Engine.Factories
 {
@@ -47,8 +48,11 @@ namespace Engine.Factories
         private static void BuildWeapon(int id, string name, int price,
             int minDamage, int maxDamage)
         {
-            _standardGameItems.Add(new GameItem(GameItem.ItemCategory.Weapon, id, name, price,
-                true, minDamage, maxDamage));
+            GameItem weapon = new GameItem(GameItem.ItemCategory.Weapon, id, name, price, true);
+
+            weapon.Action = new AttackWithWeapon(weapon, minDamage, maxDamage);
+
+            _standardGameItems.Add(weapon);
         }
     }
 }

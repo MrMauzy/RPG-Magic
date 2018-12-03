@@ -16,6 +16,7 @@ namespace Engine.Models
         private int _maxHitPoints;
         private int _gold;
         private int _level;
+        private GameItem _currentWeapon;
 
         public string Name
         {
@@ -67,6 +68,25 @@ namespace Engine.Models
             }
         }
 
+        public GameItem CurrentWeapon
+        {
+            get { return _currentWeapon; }
+            set
+            {
+                if(_currentWeapon != null)
+                {
+                    _currentWeapon.Action.OnActionPerformed -= RaiseActionPerformedEvent;
+                }
+
+                _currentWeapon = value;
+
+                if(_currentWeapon != null)
+                {
+                    _currentWeapon.Action.OnActionPerformed += RaiseActionPerformedEvent;
+                }
+            }
+        }
+
         public ObservableCollection<GameItem> Inventory { get; }
 
         public ObservableCollection<GroupedInventoryItem> GroupedInventory { get; }
@@ -78,6 +98,7 @@ namespace Engine.Models
 
         #endregion
 
+        public event EventHandler<string> OnActionPerformed;
         public event EventHandler OnKilled;
 
         protected LivingEntity(string name, int maxHitPoints, int currentHitPoints, int gold,
@@ -93,6 +114,11 @@ namespace Engine.Models
             GroupedInventory = new ObservableCollection<GroupedInventoryItem>();
         }
 
+        public void UseCurrentWeapon(LivingEntity victim)
+        {
+            CurrentWeapon.PerformAction(this, victim);
+        }
+
         public void TakeDamage(int hitPointsOfDamage)
         {
             CurrentHitPoints -= hitPointsOfDamage;
@@ -103,7 +129,6 @@ namespace Engine.Models
                 RaiseOnKilledEvent();
             }
         }
-
 
         public void Heal(int hitPointsToHeal)
         {
@@ -183,6 +208,11 @@ namespace Engine.Models
         private void RaiseOnKilledEvent()
         {
             OnKilled?.Invoke(this, new System.EventArgs());
+        }
+
+        private void RaiseActionPerformedEvent(object sender, string result)
+        {
+            OnActionPerformed?.Invoke(this, result);
         }
 
         #endregion
