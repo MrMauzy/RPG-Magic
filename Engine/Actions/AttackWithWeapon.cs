@@ -41,6 +41,9 @@ namespace Engine.Actions
         {
             int damage = RandomNumberGenerator.NumberBetween(_minDamage, _maxDamage);
 
+            string actorName = (actor is Player) ? "You" : $"The {actor.Name.ToLower()}";
+            string victimName = (victim is Player) ? "You" : $"The {victim.Name.ToLower()}";
+
             if(damage == 0)
             {
                 ReportResults($"You attacked, yet you missed {victim.Name.ToLower()}.");

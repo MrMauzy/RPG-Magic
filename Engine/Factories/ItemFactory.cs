@@ -19,6 +19,10 @@ namespace Engine.Factories
             BuildWeapon(1002, "Police Baton", 1, 1, 2);
             BuildWeapon(1005, "Legendary Sword", 100, 150, 200);
 
+            BuildWeapon(1010, "Laser", 0, 0, 10);
+            BuildWeapon(1011, "Club", 0, 0, 5);
+            BuildWeapon(1012, "Goo", 0, 0, 3);
+
             // Health 
             BuildMiscellaneousItem(8001, "Bread", 1);
             BuildMiscellaneousItem(8002, "Health Potion", 25);

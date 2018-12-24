@@ -74,6 +74,7 @@ namespace Engine.ViewModels
 
                 if (_currentMonster != null)
                 {
+                    _currentMonster.OnActionPerformed -= OnCurrentMonsterPerformedAction;
                     _currentMonster.OnKilled -= OnCurrentMonsterKilled;
                 }
 
@@ -81,6 +82,7 @@ namespace Engine.ViewModels
 
                 if(_currentMonster != null)
                 {
+                    _currentMonster.OnActionPerformed += OnCurrentMonsterPerformedAction;
                     _currentMonster.OnKilled += OnCurrentMonsterKilled;
 
                     RaiseMessage("");
@@ -299,19 +301,7 @@ namespace Engine.ViewModels
             }
             else
             {
-                // This is where the Monster will attack you
-                int damageToPlayer = RandomNumberGenerator.NumberBetween(CurrentMonster.MinDamage,
-                    CurrentMonster.MaxDamage);
-
-                if (damageToPlayer == 0)
-                {
-                    RaiseMessage($"The {CurrentMonster.Name} attacks, but misses you");
-                }
-                else
-                {
-                    RaiseMessage($"The {CurrentMonster.Name} hit you for {damageToPlayer} points");
-                    CurrentPlayer.TakeDamage(damageToPlayer);
-                }
+                CurrentMonster.UseCurrentWeapon(CurrentPlayer);
             }
         }
 
@@ -338,23 +328,16 @@ namespace Engine.ViewModels
             }
             else
             {
-                //Let the monster attack
-                int damageToPlayer = RandomNumberGenerator.NumberBetween(CurrentMonster.MinDamage,
-                    CurrentMonster.MaxDamage);
-
-                if(damageToPlayer == 0)
-                {
-                    RaiseMessage($"The {CurrentMonster.Name} attacks, but misses you");
-                }
-                else
-                {
-                    RaiseMessage($"The {CurrentMonster.Name} hot you for {damageToPlayer} points");
-                    CurrentPlayer.TakeDamage(damageToPlayer);
-                }
+                CurrentMonster.UseCurrentWeapon(CurrentPlayer);
             }
         }
 
         private void OnCurrentPlayerPerformedAction(object sender, string result)
+        {
+            RaiseMessage(result);
+        }
+
+        private void OnCurrentMonsterPerformedAction(object sender, string result)
         {
             RaiseMessage(result);
         }

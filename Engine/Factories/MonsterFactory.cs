@@ -15,7 +15,9 @@ namespace Engine.Factories
             {
                 case 1:
                     Monster GreenGoo =
-                        new Monster("Green Goo", "GreenGoo.png", 5, 5, 1, 3, 5, 2);
+                        new Monster("Green Goo", "GreenGoo.png", 5, 5, 5, 2);
+
+                    GreenGoo.CurrentWeapon = ItemFactory.CreateGameItem(1012);
 
                     AddLootItem(GreenGoo, 8001, 50);
                     AddLootItem(GreenGoo, 5003, 25);
@@ -25,7 +27,9 @@ namespace Engine.Factories
 
                 case 2:
                     Monster Outlaw =
-                        new Monster("Outlaw Prisoner", "Outlaw.png", 20, 20, 5, 15, 10, 20);
+                        new Monster("Outlaw Prisoner", "Outlaw.png", 20, 20, 10, 20);
+
+                    Outlaw.CurrentWeapon = ItemFactory.CreateGameItem(1011);
 
                     AddLootItem(Outlaw, 8001, 50);
                     AddLootItem(Outlaw, 5005, 35);
@@ -35,7 +39,9 @@ namespace Engine.Factories
 
                 case 3:
                     Monster RobotScout =
-                        new Monster("Robot Scout", "ScoutMachine.png", 50, 50, 25, 45, 100, 200);
+                        new Monster("Robot Scout", "ScoutMachine.png", 50, 50, 100, 200);
+
+                    RobotScout.CurrentWeapon = ItemFactory.CreateGameItem(1010);
 
                     AddLootItem(RobotScout, 8001, 50);
                     AddLootItem(RobotScout, 5007, 30);
