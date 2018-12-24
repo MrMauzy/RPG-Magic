@@ -24,7 +24,7 @@ namespace Engine.Factories
             BuildWeapon(1012, "Goo", 0, 0, 3);
 
             // Health 
-            BuildMiscellaneousItem(8001, "Bread", 1);
+            BuildHealingItem(8001, "Bread", 1, 5);
             BuildMiscellaneousItem(8002, "Health Potion", 25);
 
 
@@ -57,6 +57,13 @@ namespace Engine.Factories
             weapon.Action = new AttackWithWeapon(weapon, minDamage, maxDamage);
 
             _standardGameItems.Add(weapon);
+        }
+
+        private static void BuildHealingItem(int id, string name, int price, int hitPointsHealed)
+        {
+            GameItem item = new GameItem(GameItem.ItemCategory.Consumable, id, name, price);
+            item.Action = new Heal(item, hitPointsHealed);
+            _standardGameItems.Add(item);
         }
     }
 }

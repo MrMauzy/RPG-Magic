@@ -297,9 +297,21 @@
                         <Image Source="/Image/Buttons/Magic.png"/>
                     </StackPanel>
                 </Button>
-            </Grid>
 
-            <!-- Movement -->
+                <ComboBox Grid.Row="4" Grid.Column="0"
+                          ItemsSource="{Binding CurrentPlayer.Consumables}"
+                          SelectedItem="{Binding CurrentPlayer.CurrentConsumable}"
+                          DisplayMemberPath="Name"
+                          SelectedValuePath="ID"/>
+            <Button Grid.Row="4" Grid.Column="2"
+                        Click="OnClick_UseCurrentConsumable">
+                <StackPanel>
+                    <Image Source="/Image/Buttons/Consume.png"/>
+                </StackPanel>
+            </Button>
+        </Grid>
+
+        <!-- Movement -->
             <Grid Grid.Row="0" Grid.Column="1">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="75"/>

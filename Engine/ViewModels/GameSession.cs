@@ -145,6 +145,8 @@ namespace Engine.ViewModels
                 CurrentPlayer.SpellList.Add(MagicFactory.CreateMagicSpell(8001));
             }
 
+            CurrentPlayer.AddItemToInventory(ItemFactory.CreateGameItem(8001));
+
             CurrentWorld = WorldFactory.CreateWorld();
 
             CurrentLocation = CurrentWorld.LocationAt(1, 1);
@@ -330,6 +332,11 @@ namespace Engine.ViewModels
             {
                 CurrentMonster.UseCurrentWeapon(CurrentPlayer);
             }
+        }
+
+        public void UseCurrentConsumable()
+        {
+            CurrentPlayer.useCurrentConsumable();
         }
 
         private void OnCurrentPlayerPerformedAction(object sender, string result)
