@@ -373,6 +373,8 @@ namespace Engine.ViewModels
         private void OnCurrentPlayerLeveledUp(object sender, System.EventArgs eventArgs)
         {
             RaiseMessage($"You are now level {CurrentPlayer.Level}!");
+            CurrentPlayer.CompleteHeal();
+            CurrentPlayer.FullManaRestore();
         }
 
         private void RaiseMessage(string message)

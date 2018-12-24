@@ -42,7 +42,7 @@ namespace Engine.Actions
             int damage = RandomNumberGenerator.NumberBetween(_minDamage, _maxDamage);
 
             string actorName = (actor is Player) ? "You" : $"The {actor.Name.ToLower()}";
-            string victimName = (victim is Player) ? "You" : $"The {victim.Name.ToLower()}";
+            string victimName = (victim is Player) ? "you" : $"the {victim.Name.ToLower()}";
 
             if(damage == 0)
             {
@@ -50,7 +50,7 @@ namespace Engine.Actions
             }
             else
             {
-                ReportResults($"{damage} points of damage dealt to {victim.Name.ToLower()}.");
+                ReportResults($"{actorName} hit {victimName} for {damage} point{((damage) > 1 ? "s" : "")}.");
                 victim.TakeDamage(damage);
             }
         }
