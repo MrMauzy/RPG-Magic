@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Actions\AttackWithWeapon.cs" />
+    <Compile Include="Actions\BaseAction.cs" />
     <Compile Include="Actions\Heal.cs" />
     <Compile Include="Actions\IAction.cs" />
     <Compile Include="BaseNotificationClass.cs" />
@@ -52,6 +53,7 @@
     <Compile Include="Factories\MagicFactory.cs" />
     <Compile Include="Factories\MonsterFactory.cs" />
     <Compile Include="Factories\QuestFactory.cs" />
+    <Compile Include="Factories\RecipeFactory.cs" />
     <Compile Include="Factories\TraderFactory.cs" />
     <Compile Include="Factories\WorldFactory.cs" />
     <Compile Include="Models\ButtonImage.cs" />
@@ -66,6 +68,7 @@
     <Compile Include="Models\Player.cs" />
     <Compile Include="Models\Quest.cs" />
     <Compile Include="Models\QuestStatus.cs" />
+    <Compile Include="Models\Recipe.cs" />
     <Compile Include="Models\Trader.cs" />
     <Compile Include="Models\World.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

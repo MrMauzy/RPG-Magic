@@ -27,6 +27,10 @@ namespace Engine.Factories
             BuildHealingItem(8001, "Bread", 1, 5);
             BuildMiscellaneousItem(8002, "Health Potion", 25);
 
+            // Recipe Items
+            BuildMiscellaneousItem(3000, "Sword Hilt", 2);
+            BuildMiscellaneousItem(3001, "Iron Ingot", 2);
+            BuildMiscellaneousItem(3002, "Steel Ingot", 3);
 
             //Random Junk
             BuildMiscellaneousItem(5003, "Slime", 1);

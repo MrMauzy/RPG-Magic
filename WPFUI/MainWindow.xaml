@@ -46,31 +46,31 @@
             </Grid.RowDefinitions>
 
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto" MinWidth="50"/>
-                <ColumnDefinition Width="Auto" MinWidth="50"/>
+                <ColumnDefinition Width="Auto" MinWidth="120"/>
+                <ColumnDefinition Width="Auto" MinWidth="34"/>
             </Grid.ColumnDefinitions>
 
-            <Label Grid.Row="0" Grid.Column="0" Content="Name:" Grid.ColumnSpan="2" Margin="31,30,-14,10" Grid.RowSpan="2"/>
-            <Label Grid.Row="0" Grid.Column="1" Content="{Binding CurrentPlayer.Name}" Margin="31,30,-14,10" 
-                   HorizontalContentAlignment="Right" HorizontalAlignment="Left" Width="137"/>
-            <Label Grid.Row="1" Grid.Column="0" Content="Class:" Grid.ColumnSpan="2" Margin="31,30,-14,10" Grid.RowSpan="2"/>
-            <Label Grid.Row="1" Grid.Column="1" Content="{Binding CurrentPlayer.CharacterClass}" Margin="31,30,-14,10"
-                   HorizontalContentAlignment="Right"/>
-            <Label Grid.Row="2" Grid.Column="0" Content="Hit Points:" Grid.ColumnSpan="2" Margin="31,30,-14,10" Grid.RowSpan="2"/>
-            <Label Grid.Row="2" Grid.Column="1" Content="{Binding CurrentPlayer.CurrentHitPoints}" Margin="27,30,-10,10"
-                   HorizontalContentAlignment="Right"/>
-            <Label Grid.Row="3" Grid.Column="0" Content="Magic:" Grid.ColumnSpan="2" Margin="31,30,-14,10" Grid.RowSpan="2"/>
-            <Label Grid.Row="3" Grid.Column="1" Content="{Binding CurrentPlayer.MagicPoints}" Margin="27,30,-10,10"
-                   HorizontalContentAlignment="Right"/>
-            <Label Grid.Row="4" Grid.Column="0" Content="XP:" Grid.ColumnSpan="2" Margin="31,30,-14,10" Grid.RowSpan="2"/>
+            <Label Grid.Row="0" Grid.Column="0" Content="Name:" Grid.ColumnSpan="2" Grid.RowSpan="2" Margin="10"/>
+            <Label Grid.Row="0" Grid.Column="3" Content="{Binding CurrentPlayer.Name}" Grid.ColumnSpan="2" Grid.RowSpan="2" 
+                   HorizontalContentAlignment="Left" Margin="10"/>
+            <Label Grid.Row="1" Grid.Column="0" Content="Class:" Grid.ColumnSpan="2" Margin="10" Grid.RowSpan="2"/>
+            <Label Grid.Row="1" Grid.Column="3" Content="{Binding CurrentPlayer.CharacterClass}" Margin="10"
+                   HorizontalContentAlignment="Left"/>
+            <Label Grid.Row="2" Grid.Column="0" Content="Hit Points:" Grid.ColumnSpan="2" Margin="10" Grid.RowSpan="2"/>
+            <Label Grid.Row="2" Grid.Column="3" Content="{Binding CurrentPlayer.CurrentHitPoints}" Margin="10"
+                   HorizontalContentAlignment="Center"/>
+            <Label Grid.Row="3" Grid.Column="0" Content="Magic:" Grid.ColumnSpan="2" Margin="10" Grid.RowSpan="2"/>
+            <Label Grid.Row="3" Grid.Column="3" Content="{Binding CurrentPlayer.MagicPoints}" Margin="10"
+                   HorizontalContentAlignment="Center"/>
+            <Label Grid.Row="4" Grid.Column="0" Content="XP:" Grid.ColumnSpan="2" Margin="10" Grid.RowSpan="2"/>
             <Label Grid.Row="4" Content="{Binding CurrentPlayer.ExperiencePoints}" 
-                   HorizontalContentAlignment="Right" Margin="10,30,-10,41" Grid.Column="1" Grid.RowSpan="2"/>
-            <Label Grid.Row="5" Grid.Column="0" Content="Level:" Grid.ColumnSpan="2" Margin="31,30,-14,10"/>
-            <Label Grid.Row="5" Grid.Column="1" Content="{Binding CurrentPlayer.Level}" Margin="31,30,-14,10"
-                   HorizontalContentAlignment="Right"/>
-            <Label Grid.Row="6" Grid.Column="0" Content="Gold:" Grid.ColumnSpan="2" Margin="31,10,-14,21"/>
-            <Label Grid.Row="6" Grid.Column="1" Content="{Binding CurrentPlayer.Gold}"  Margin="31,10,-14,30"
-                   HorizontalContentAlignment="Right"/>
+                   HorizontalContentAlignment="Center" Margin="10, 10, 10, 10" Grid.Column="1" Grid.RowSpan="2"/>
+            <Label Grid.Row="5" Grid.Column="0" Content="Level:" Grid.ColumnSpan="2" Margin="10"/>
+            <Label Grid.Row="5" Grid.Column="3" Content="{Binding CurrentPlayer.Level}" Margin="10"
+                   HorizontalContentAlignment="Center"/>
+            <Label Grid.Row="6" Grid.Column="0" Content="Gold:" Grid.ColumnSpan="2" Margin="10" />
+            <Label Grid.Row="6" Grid.Column="3" Content="{Binding CurrentPlayer.Gold}"  Margin="10"
+                   HorizontalContentAlignment="Center"/>
         </Grid>
 
         <!-- Game Information -->
@@ -236,6 +236,24 @@
                     </DataGrid>
                 </TabItem>
 
+                <TabItem Header="Recipes">
+                    <DataGrid ItemsSource="{Binding CurrentPlayer.Recipes}"
+                              AutoGenerateColumns="False"
+                              HeadersVisibility="Column">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Name"
+                                                Binding="{Binding Name}"
+                                                Width="*">
+                                <DataGridTextColumn.ElementStyle>
+                                    <Style>
+                                        <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
+                                    </Style>
+                                </DataGridTextColumn.ElementStyle>
+                            </DataGridTextColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </TabItem>
+                
             </TabControl>
         </Grid>
 
