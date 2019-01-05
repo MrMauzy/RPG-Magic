@@ -9,7 +9,8 @@
         FontSize="14pt"
         FontFamily="Franklin Gothic"
         FontWeight="Bold"
-        Title="RPG MAGIC" Height="768" Width="1024">
+        Title="RPG MAGIC" Height="768" Width="1024"
+        KeyDown="MainWindow_OnKeyDown">
 
     <Window.Resources>
         <BooleanToVisibilityConverter x:Key="BooleanToVisibility" />

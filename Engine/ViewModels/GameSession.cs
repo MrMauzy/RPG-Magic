@@ -334,7 +334,10 @@ namespace Engine.ViewModels
 
         public void UseCurrentConsumable()
         {
-            CurrentPlayer.useCurrentConsumable();
+            if (CurrentPlayer.CurrentConsumable != null)
+            {
+                CurrentPlayer.useCurrentConsumable();
+            }
         }
 
         public void CraftItemUsing(Recipe recipe)
