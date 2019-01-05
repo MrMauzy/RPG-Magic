@@ -92,5 +92,11 @@ namespace WPFUI
             tradeScreen.DataContext = _gameSession;
             tradeScreen.ShowDialog();
         }
+
+        private void OnClick_Craft(object sender, RoutedEventArgs e)
+        {
+            Recipe recipe = ((FrameworkElement)sender).DataContext as Recipe;
+            _gameSession.CraftItemUsing(recipe);
+        }
     }
 }
