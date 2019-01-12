@@ -181,48 +181,48 @@
                 <ImageBrush ImageSource="/Image/Textures/iron.png" />
             </Grid.Background>
 
-            <TabControl>
-                <TabItem Header="Inventory">
-                    <DataGrid ItemsSource="{Binding CurrentPlayer.GroupedInventory}"
+            <TabControl x:Name="PlayerDataTabControl">
+                <TabItem Header="Inventory" x:Name="InventoryTab">
+                    <DataGrid ItemsSource="{Binding CurrentPlayer.GroupedInventory, Mode=OneWay}"
                               AutoGenerateColumns="False"
                               HeadersVisibility="Column">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="Collected Items"
-                                                Binding="{Binding Item.Name}"
+                                                Binding="{Binding Item.Name, Mode=OneWay}"
                                                 Width="*"/>
                             <DataGridTextColumn Header="Qty"
                                                 IsReadOnly="True"
-                                                Binding="{Binding Quantity}"
+                                                Binding="{Binding Quantity, Mode=OneWay}"
                                                 Width="Auto"/>
                             <DataGridTextColumn Header="Price"
-                                                Binding="{Binding Item.Price}"
+                                                Binding="{Binding Item.Price, Mode=OneWay}"
                                                 Width="Auto"/>
                         </DataGrid.Columns>
                     </DataGrid>
                 </TabItem>
 
-                <TabItem Header="Magic">
-                    <DataGrid ItemsSource="{Binding CurrentPlayer.SpellList}"
+                <TabItem Header="Magic" x:Name="MagicTab">
+                    <DataGrid ItemsSource="{Binding CurrentPlayer.SpellList, Mode=OneWay}"
                               AutoGenerateColumns="False"
                               HeadersVisibility="Column">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="Known Spells"
-                                                Binding="{Binding Name}"
+                                                Binding="{Binding Name, Mode=OneWay}"
                                                 Width="*"/>
                             <DataGridTextColumn Header="Mana Cost"
-                                                Binding="{Binding ManaCost}"
+                                                Binding="{Binding ManaCost, Mode=OneWay}"
                                                 Width="Auto"/>
                         </DataGrid.Columns>
                     </DataGrid>
                 </TabItem>
 
-                <TabItem Header="Quests">
-                    <DataGrid ItemsSource="{Binding CurrentPlayer.Quests}"
+                <TabItem Header="Quests" x:Name="QuestTab">
+                    <DataGrid ItemsSource="{Binding CurrentPlayer.Quests, Mode=OneWay}"
                               AutoGenerateColumns="False"
                               HeadersVisibility="Column">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="Name"
-                                                Binding="{Binding PlayerQuest.Name}"
+                                                Binding="{Binding PlayerQuest.Name, Mode=OneWay}"
                                                 Width="*">
                                 <DataGridTextColumn.ElementStyle>
                                     <Style>
@@ -237,13 +237,13 @@
                     </DataGrid>
                 </TabItem>
 
-                <TabItem Header="Recipes">
-                    <DataGrid ItemsSource="{Binding CurrentPlayer.Recipes}"
+                <TabItem Header="Recipes" x:Name="RecipeTab">
+                    <DataGrid ItemsSource="{Binding CurrentPlayer.Recipes, Mode=OneWay}"
                               AutoGenerateColumns="False"
                               HeadersVisibility="Column">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="Name"
-                                                Binding="{Binding Name}"
+                                                Binding="{Binding Name, Mode=OneWay}"
                                                 Width="*">
                                 <DataGridTextColumn.ElementStyle>
                                     <Style>
