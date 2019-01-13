@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<GameItems>
+  <Weapons>
+    <Weapon ID="1001" Name="Sharp Stick" Price="1" MinDamage="1" MaxDamage="2"/>
+    <Weapon ID="1002" Name="Police Baton" Price="1" MinDamage="1" MaxDamage="2"/>
+    <Weapon ID="1005" Name="Legendary Sword" Price="100" MinDamage="150" MaxDamage="200"/>
+    <Weapon ID="1010" Name="Laser" Price="0" MinDamage="0" MaxDamage="10"/>
+    <Weapon ID="1011" Name="Club" Price="0" MinDamage="0" MaxDamage="5"/>
+    <Weapon ID="1012" Name="Goo" Price="0" MinDamage="0" MaxDamage="3"/>
+  </Weapons>
+  <HealingItems>
+    <HealingItem ID="8001" Name="Bread" Price="1" HitPointsHealed="5"/>
+  </HealingItems>
+  <MiscellaneousItems>
+    <MiscellaneousItem ID="8002" Name="Health Potion" Price="25"/>
+    <MiscellaneousItem ID="3000" Name="Sword Hilt" Price="2"/>
+    <MiscellaneousItem ID="3001" Name="Iron Ingot" Price="2"/>
+    <MiscellaneousItem ID="3002" Name="Steel Ingot" Price="3"/>
+    <MiscellaneousItem ID="5003" Name="Slime" Price="1"/>
+    <MiscellaneousItem ID="5004" Name="Jar of Slobber" Price="2"/>
+    <MiscellaneousItem ID="5005" Name="Shaving Cream" Price="1"/>
+    <MiscellaneousItem ID="5006" Name="Old Pizza" Price="4"/>
+    <MiscellaneousItem ID="5007" Name="Robot Parts" Price="40"/>
+    <MiscellaneousItem ID="9001" Name="Prison Key" Price="3"/>
+  </MiscellaneousItems>
+</GameItems>

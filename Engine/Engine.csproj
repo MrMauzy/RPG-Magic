@@ -107,5 +107,10 @@
     <Resource Include="Images\UI\NoRight.png" />
     <Resource Include="Images\UI\NoUp.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="GameData\GameItems.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
