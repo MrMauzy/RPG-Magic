@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<Locations RootImagePath="/Images/Locations/">
+  <Location X="-3" Y="1" Name="Prison Cell" ImageName="Cell.jpg">
+    <Description><![CDATA[This is your new home, get comfy.]]></Description>
+  </Location>
+  <Location X="-2" Y="1" Name="" ImageName="Lobby.jpg">
+    <Description><![CDATA[It looks like the hallway in some old abandoned dungeon.]]></Description>
+    <Quests>
+      <Quest ID="2"/>
+    </Quests>
+  </Location>
+  <Location X="-1" Y="1" Name="Occupied Cell" ImageName="Cell.jpg">
+    <Description><![CDATA[It looks like there is another prisoner in this cell.]]></Description>
+    <Trader Name="Old Prisoner"/>
+  </Location>
+  <Location X="0" Y="" Name="1" ImageName="Lobby.jpg">
+    <Description><![CDATA[This is a lobby that has 4 different ways to go.]]></Description>
+  </Location>
+  <Location X="0" Y="" Name="2" ImageName="Cell.jpg">
+    <Description><![CDATA[It looks like a gym for the prisoners, or more likely the gaurds.]]></Description>
+    <Monsters>
+      <Monster ID="1" Percent="75"/>
+    </Monsters>
+  </Location>
+  <Location X="1" Y="" Name="1" ImageName="Office.jpg">
+    <Description><![CDATA[This is an interesting looking library.]]></Description>
+    <Monsters>
+      <Monster ID="2" Percent="100"/>
+    </Monsters>
+  </Location>
+  <Location X="0" Y="0" Name="Locked Room" ImageName="Outside.jpg">
+    <Description><![CDATA[This room looks to have a locked door, I need some kind of key.]]></Description>
+    <Monsters>
+      <Monster ID="3" Percent="100"/>
+    </Monsters>
+  </Location>
+  <Location X="-1" Y="0" Name="Secret Room" ImageName="Entry.jpg">
+    <Description><![CDATA[Hidden room, you shouldn't be here!.]]></Description>
+  </Location>
+</Locations>

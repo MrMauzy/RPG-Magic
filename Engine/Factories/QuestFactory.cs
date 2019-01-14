@@ -26,6 +26,11 @@ namespace Engine.Factories
                 "They are scatterd around the prison",
                 itemsToComplete,
                 25, 10, rewardItems));
+            _quest.Add(new Quest(2,
+                "Find a way out of the dungeon",
+                "There has to be a way out.",
+                new List<ItemQuantity> {new ItemQuantity(9001, 1)},
+                100, 100, new List<ItemQuantity> { new ItemQuantity(8002, 1) }));
         }
 
         internal static Quest GetQuestByID(int id)

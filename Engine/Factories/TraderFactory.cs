@@ -13,8 +13,8 @@ namespace Engine.Factories
 
         static TraderFactory()
         {
-            Trader OldGaurd = new Trader("Old Gaurd");
-            OldGaurd.AddItemToInventory(ItemFactory.CreateGameItem(5004));
+            Trader OldPrisoner = new Trader("Old Prisoner");
+            OldPrisoner.AddItemToInventory(ItemFactory.CreateGameItem(5004));
 
             Trader Mouse = new Trader("Shady Mouse");
             Mouse.AddItemToInventory(ItemFactory.CreateGameItem(5006));
@@ -22,7 +22,7 @@ namespace Engine.Factories
             Trader MagicalBox = new Trader("Magical Trading Box");
             MagicalBox.AddItemToInventory(ItemFactory.CreateGameItem(1002));
 
-            AddTraderToList(OldGaurd);
+            AddTraderToList(OldPrisoner);
             AddTraderToList(Mouse);
             AddTraderToList(MagicalBox);
         }

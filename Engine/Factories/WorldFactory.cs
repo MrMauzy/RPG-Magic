@@ -21,8 +21,10 @@ namespace Engine.Factories
                 TraderFactory.GetTraderByName("Shady Mouse");
 
             newWorld.AddLocation(1, 0, "Prison Lobby",
-                "This is where the guard hangout.",
+                "This is where the guards hangout.",
                 "Lobby.jpg");
+
+            newWorld.LocationAt(1, 0).QuestsAvaliable.Add(QuestFactory.GetQuestByID(2));
 
             newWorld.AddLocation(1, -1, "Empty Cell",
                 "This Cell Looks to be Abandoned.",
