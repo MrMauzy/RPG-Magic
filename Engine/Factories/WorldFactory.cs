@@ -16,7 +16,7 @@ namespace Engine.Factories
 
         internal static World CreateWorld()
         {
-            World newWorld = new World();
+            World world = new World();
 
             if(File.Exists(GAME_DATA_FILENAME))
             {
@@ -27,13 +27,16 @@ namespace Engine.Factories
                     data.SelectSingleNode("/Locations")
                     .AttributeAsString("RootImagePath");
 
+                LoadLocationsFromNodes(world,
+                    rootImagePath,
+                    data.SelectNodes("/Locations/Location"));
             }
             else
             {
                 throw new FileNotFoundException($"Missing data file: {GAME_DATA_FILENAME}");
             }
 
-            return newWorld;
+            return world;
         }
 
         private static void LoadLocationsFromNodes(World world, string rootImagePath, XmlNodeList nodes)

@@ -7,7 +7,7 @@ using System.Xml;
 
 namespace Engine.Shared
 {
-    public static class ExtensionMehods
+    public static class ExtensionMethods
     {
         public static int AttributeAsInt(this XmlNode node, string attributeName)
         {
@@ -18,9 +18,9 @@ namespace Engine.Shared
         {
             XmlAttribute attribute = node.Attributes?[attributeName];
 
-            if(attribute == null)
+            if (attribute == null)
             {
-                throw new ArgumentException($"The attribute '{attributeName}' dows not exist.");
+                throw new ArgumentException($"The attribute '{attributeName}' does not exist");
             }
 
             return attribute.Value;
