@@ -80,14 +80,30 @@
     <Resource Include="Images\UI\Book.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\Locations\Cafeteria.jpg" />
-    <Resource Include="Images\Locations\Cell.jpg" />
-    <Resource Include="Images\Locations\Courtyard.jpg" />
-    <Resource Include="Images\Locations\Entry.jpg" />
-    <Resource Include="Images\Locations\Hallway.jpg" />
-    <Resource Include="Images\Locations\Lobby.jpg" />
-    <Resource Include="Images\Locations\Office.jpg" />
-    <Resource Include="Images\Locations\Outside.jpg" />
+    <None Include="Images\Locations\Cafeteria.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Images\Locations\Cell.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Images\Locations\Courtyard.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Images\Locations\Entry.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Images\Locations\Hallway.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Images\Locations\Lobby.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Images\Locations\Office.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Images\Locations\Outside.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\Monsters\AssassinRat.png" />

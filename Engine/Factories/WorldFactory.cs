@@ -3,72 +3,99 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
+using System.Xml;
 using Engine.Models;
+using Engine.Shared;
 
 namespace Engine.Factories
 {
     internal static class WorldFactory
     {
+        private const string GAME_DATA_FILENAME = ".\\GameData\\Locations.xml";
+
         internal static World CreateWorld()
         {
             World newWorld = new World();
 
-            newWorld.AddLocation(1, 1, "Your Cell",
-                "This is your new home.",
-                "Cell.jpg");
+            if(File.Exists(GAME_DATA_FILENAME))
+            {
+                XmlDocument data = new XmlDocument();
+                data.LoadXml(File.ReadAllText(GAME_DATA_FILENAME));
 
-            newWorld.LocationAt(1, 1).TraderHere =
-                TraderFactory.GetTraderByName("Shady Mouse");
+                string rootImagePath =
+                    data.SelectSingleNode("/Locations")
+                    .AttributeAsString("RootImagePath");
 
-            newWorld.AddLocation(1, 0, "Prison Lobby",
-                "This is where the guards hangout.",
-                "Lobby.jpg");
-
-            newWorld.LocationAt(1, 0).QuestsAvaliable.Add(QuestFactory.GetQuestByID(2));
-
-            newWorld.AddLocation(1, -1, "Empty Cell",
-                "This Cell Looks to be Abandoned.",
-                "Cell.jpg");
-
-            newWorld.AddLocation(0, 0, "Courtyard",
-                "Outdoor Activities Yard.",
-                "Courtyard.jpg");
-
-            newWorld.LocationAt(0, 0).AddMonster(1, 100);
-
-            newWorld.AddLocation(2, 0, "Exit",
-                "The Exit!",
-                "Entry.jpg");
-
-            newWorld.LocationAt(2, 0).AddMonster(3, 100);
-
-            newWorld.AddLocation(-1, 0, "Cafeteria",
-                "The food looks disgusting.",
-                "Cafeteria.jpg");
-
-            newWorld.LocationAt(-1, 0).AddMonster(2, 100);
-
-            newWorld.AddLocation(-2, 0, "Empty Cell",
-                "This cell looks recently abandoned.",
-                "Cell.jpg");
-
-            newWorld.LocationAt(-2, 0).QuestsAvaliable.Add(QuestFactory.GetQuestByID(1));
-
-            newWorld.AddLocation(-1, 1, "Office",
-                "Someone's office.",
-                "Office.jpg");
-
-            newWorld.LocationAt(-1, 1).TraderHere =
-                TraderFactory.GetTraderByName("Old Guard");
-
-            newWorld.AddLocation(-1, -1, "Secret Hallway",
-                "As Landon would say, I see nothing!",
-                "Hallway.jpg");
-
-            newWorld.LocationAt(-1, -1).TraderHere =
-                TraderFactory.GetTraderByName("Magical Trading Box");
+            }
+            else
+            {
+                throw new FileNotFoundException($"Missing data file: {GAME_DATA_FILENAME}");
+            }
 
             return newWorld;
+        }
+
+        private static void LoadLocationsFromNodes(World world, string rootImagePath, XmlNodeList nodes)
+        {
+            if(nodes == null)
+            {
+                return;
+            }
+
+            foreach(XmlNode node in nodes)
+            {
+                Location location =
+                    new Location(node.AttributeAsInt("X"),
+                    node.AttributeAsInt("Y"),
+                    node.AttributeAsString("Name"),
+                    node.SelectSingleNode("./Description")?.InnerText ?? "",
+                    $".{rootImagePath}{node.AttributeAsString("ImageName")}");
+
+                AddMonsters(location, node.SelectNodes("./Monsters/Monster"));
+                AddQuests(location, node.SelectNodes("./Quests/Quest"));
+                AddTrader(location, node.SelectSingleNode("./Trader"));
+
+                world.AddLocation(location);
+             }
+        }
+
+        private static void AddMonsters(Location location, XmlNodeList monsters)
+        {
+            if (monsters == null)
+            {
+                return;
+            }
+
+            foreach(XmlNode monsterNode in monsters)
+            {
+                location.AddMonster(monsterNode.AttributeAsInt("ID"),
+                    monsterNode.AttributeAsInt("Percent"));
+            }
+        }
+
+        private static void AddQuests(Location location, XmlNodeList quests)
+        {
+            if (quests == null)
+            {
+                return;
+            }
+
+            foreach (XmlNode questNode in quests)
+            {
+                location.QuestsAvaliable.Add(QuestFactory.GetQuestByID(questNode.AttributeAsInt("ID")));
+            }
+        }
+
+        private static void AddTrader(Location location, XmlNode traderHere)
+        {
+            if (traderHere == null)
+            {
+                return;
+            }
+
+            location.TraderHere =
+                TraderFactory.GetTraderByName(traderHere.AttributeAsString("Name"));
         }
     }
 }
