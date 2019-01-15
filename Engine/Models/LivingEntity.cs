@@ -88,6 +88,8 @@ namespace Engine.Models
             }
         }
 
+
+
         public GameItem CurrentConsumable
         {
             get => _currentConsumable;
@@ -136,6 +138,7 @@ namespace Engine.Models
             CurrentHitPoints = currentHitPoints;
             Gold = gold;
             Level = level;
+
 
             Inventory = new ObservableCollection<GameItem>();
             GroupedInventory = new ObservableCollection<GroupedInventoryItem>();

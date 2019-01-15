@@ -27,6 +27,7 @@ namespace Engine.Factories
                 LoadItemsFromNodes(data.SelectNodes("/GameItems/Weapons/Weapon"));
                 LoadItemsFromNodes(data.SelectNodes("/GameItems/HealingItems/HealingItem"));
                 LoadItemsFromNodes(data.SelectNodes("/GameItems/MiscellaneousItems/MiscellaneousItem"));
+                LoadItemsFromNodes(data.SelectNodes("/GameItems/Spells/Spell"));
             }
             else
             {
@@ -75,6 +76,13 @@ namespace Engine.Factories
                         new Heal(gameItem,
                         node.AttributeAsInt("HitPointsHealed"));
                 }
+                else if(itemCategory == GameItem.ItemCategory.Magic)
+                {
+                    gameItem.Action =
+                        new Spells(gameItem,
+                        node.AttributeAsInt("MagicDamage"),
+                        node.AttributeAsInt("ManaCost"));
+                }
 
                 _standardGameItems.Add(gameItem);
             }
@@ -88,6 +96,8 @@ namespace Engine.Factories
                     return GameItem.ItemCategory.Weapon;
                 case "HealingItem":
                     return GameItem.ItemCategory.Consumable;
+                case "Magic":
+                    return GameItem.ItemCategory.Magic;
                 default:
                     return GameItem.ItemCategory.Miscellaneous;
             }

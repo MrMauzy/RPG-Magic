@@ -13,7 +13,8 @@ namespace Engine.Models
         {
             Miscellaneous,
             Weapon,
-            Consumable
+            Consumable,
+            Magic
         }
 
         public ItemCategory Category { get; }

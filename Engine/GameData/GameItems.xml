@@ -23,4 +23,7 @@
     <MiscellaneousItem ID="5007" Name="Robot Parts" Price="40"/>
     <MiscellaneousItem ID="9001" Name="Prison Key" Price="3"/>
   </MiscellaneousItems>
+  <Spells>
+    <Spell> ID="7001" Name="Fireball" MagicDamage="100" ManaCost="10" </Spell>
+  </Spells>
 </GameItems>

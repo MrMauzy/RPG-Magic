@@ -16,6 +16,7 @@ namespace Engine.Models
         private int _magicPoints;
         private int _experiencePoints;
         private int _maxMana;
+        private GameItem _currentSpell;
 
         public string CharacterClass
         {
@@ -59,14 +60,35 @@ namespace Engine.Models
             }
         }
 
+        public GameItem CurrentSpell
+        {
+            get { return _currentSpell; }
+            set
+            {
+                if (_currentSpell != null)
+                {
+                    _currentSpell.Action.OnActionPerformed -= RaiseActionPerformedEvent;
+                }
+
+                _currentSpell = value;
+
+                if (_currentSpell != null)
+                {
+                    _currentSpell.Action.OnActionPerformed += RaiseActionPerformedEvent;
+                }
+            }
+        }
+
         public ObservableCollection<Magic> SpellList { get; }
 
-        public List<Magic> Spells =>
-            SpellList.Where(i => i is Magic).ToList();
+        public List<GameItem> Magic =>
+            Inventory.Where(i => i.Category == GameItem.ItemCategory.Magic).ToList();
 
         public ObservableCollection<QuestStatus> Quests { get; }
 
         public ObservableCollection<Recipe> Recipes { get; }
+
+        public new event EventHandler<string> OnActionPerformed;
 
         #endregion
 
@@ -124,6 +146,11 @@ namespace Engine.Models
 
                 OnLeveledUp?.Invoke(this, System.EventArgs.Empty);
             }
+        }
+
+        private void RaiseActionPerformedEvent(object sender, string result)
+        {
+            OnActionPerformed?.Invoke(this, result);
         }
     }
 }

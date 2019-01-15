@@ -13,6 +13,14 @@ namespace Engine.Models
         public int ManaCost { get; set; }
         public int MagicDamage { get; set; }
 
+        public enum ItemCategory
+        {
+            Fire,
+            Ice,
+            Light,
+            Dark
+        }
+
         public Magic(int magicSpellID, string name, int manaCost, int magicDamage)
         {
             MagicSpellID = magicSpellID;
