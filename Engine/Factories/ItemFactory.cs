@@ -96,7 +96,7 @@ namespace Engine.Factories
                     return GameItem.ItemCategory.Weapon;
                 case "HealingItem":
                     return GameItem.ItemCategory.Consumable;
-                case "Magic":
+                case "Spell":
                     return GameItem.ItemCategory.MagicScrolls;
                 default:
                     return GameItem.ItemCategory.Miscellaneous;

@@ -140,7 +140,7 @@ namespace Engine.ViewModels
                 CurrentPlayer.AddItemToInventory(ItemFactory.CreateGameItem(1005));
             }
 
-            if (!CurrentPlayer.Magics.Any())
+            if (!CurrentPlayer.MagicList.Any())
             {
                 CurrentPlayer.AddItemToInventory(ItemFactory.CreateGameItem(7001));
                 CurrentPlayer.AddItemToInventory(ItemFactory.CreateGameItem(7002));

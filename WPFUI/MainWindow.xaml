@@ -317,7 +317,7 @@
                 </Button>
 
                 <ComboBox Grid.Row="2" Grid.Column="0"
-                          ItemsSource="{Binding CurrentPlayer.Magics}"
+                          ItemsSource="{Binding CurrentPlayer.MagicList}"
                           SelectedItem="{Binding CurrentPlayer.CurrentSpell}"
                           DisplayMemberPath="Name"
                           SelectedValuePath="ID"/>

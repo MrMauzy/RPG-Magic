@@ -168,7 +168,7 @@ namespace Engine.Models
         public List<GameItem> Weapons =>
             Inventory.Where(i => i.Category is GameItem.ItemCategory.Weapon).ToList();
 
-        public List<GameItem> Magics =>
+        public List<GameItem> MagicList =>
             Inventory.Where(i => i.Category is GameItem.ItemCategory.MagicScrolls).ToList();
 
         public List<GameItem> Consumables =>
@@ -279,7 +279,7 @@ namespace Engine.Models
             }
 
             OnPropertyChanged(nameof(Weapons));
-            OnPropertyChanged(nameof(Magics));
+            OnPropertyChanged(nameof(MagicList));
             OnPropertyChanged(nameof(Consumables));
             OnPropertyChanged(nameof(HasConsumable));
         }
@@ -305,7 +305,7 @@ namespace Engine.Models
             }
 
             OnPropertyChanged(nameof(Weapons));
-            OnPropertyChanged(nameof(Magics));
+            OnPropertyChanged(nameof(MagicList));
             OnPropertyChanged(nameof(Consumables));
             OnPropertyChanged(nameof(HasConsumable));
         }
