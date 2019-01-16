@@ -49,9 +49,7 @@
     <Compile Include="Actions\IAction.cs" />
     <Compile Include="BaseNotificationClass.cs" />
     <Compile Include="EventArgs\GameMessageEventArgs.cs" />
-    <Compile Include="Factories\ButtonImageFactory.cs" />
     <Compile Include="Factories\ItemFactory.cs" />
-    <Compile Include="Factories\MagicFactory.cs" />
     <Compile Include="Factories\MonsterFactory.cs" />
     <Compile Include="Factories\QuestFactory.cs" />
     <Compile Include="Factories\RecipeFactory.cs" />
@@ -62,7 +60,6 @@
     <Compile Include="Models\ItemQuantity.cs" />
     <Compile Include="Models\LivingEntity.cs" />
     <Compile Include="Models\Location.cs" />
-    <Compile Include="Models\Magic.cs" />
     <Compile Include="Models\Monster.cs" />
     <Compile Include="Models\MonsterEncounter.cs" />
     <Compile Include="Models\Player.cs" />

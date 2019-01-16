@@ -24,6 +24,7 @@
     <MiscellaneousItem ID="9001" Name="Prison Key" Price="3"/>
   </MiscellaneousItems>
   <Spells>
-    <Spell> ID="7001" Name="Fireball" MagicDamage="100" ManaCost="10" </Spell>
+    <Spell ID="7001" Name="Fireball Scroll" Price="150" MagicDamage="100" ManaCost="10"/>
+    <Spell ID="7002" Name="Ice Scroll" Price="150" MagicDamage="100" ManaCost="10"/>
   </Spells>
 </GameItems>

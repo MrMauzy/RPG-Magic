@@ -16,8 +16,11 @@ namespace Engine.Models
         private int _maxHitPoints;
         private int _gold;
         private int _level;
+        private int _maxMana;
+        private int _magicPoints;
         private GameItem _currentWeapon;
         private GameItem _currentConsumable;
+        private GameItem _currentSpell;
 
         public string Name
         {
@@ -69,6 +72,26 @@ namespace Engine.Models
             }
         }
 
+        public int CurrentMagicPoints
+        {
+            get { return _magicPoints; }
+            set
+            {
+                _magicPoints = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public int MaxMana
+        {
+            get { return _maxMana; }
+            protected set
+            {
+                _maxMana = value;
+                OnPropertyChanged();
+            }
+        }
+
         public GameItem CurrentWeapon
         {
             get { return _currentWeapon; }
@@ -85,9 +108,36 @@ namespace Engine.Models
                 {
                     _currentWeapon.Action.OnActionPerformed += RaiseActionPerformedEvent;
                 }
+
+                OnPropertyChanged();
             }
         }
 
+        public GameItem CurrentSpell
+        {
+            get { return _currentSpell; }
+            set
+            {
+                if (_currentSpell != null)
+                {
+                    _currentSpell.Action.OnActionPerformed -= RaiseActionPerformedEvent;
+                }
+
+                _currentSpell = value;
+
+                if (_currentSpell != null)
+                {
+                    _currentSpell.Action.OnActionPerformed += RaiseActionPerformedEvent;
+                }
+
+                OnPropertyChanged();
+            }
+        }
+
+        public void UseCurrentSpell(LivingEntity victim)
+        {
+            CurrentSpell.PerformAction(this, victim);
+        }
 
 
         public GameItem CurrentConsumable
@@ -118,6 +168,9 @@ namespace Engine.Models
         public List<GameItem> Weapons =>
             Inventory.Where(i => i.Category is GameItem.ItemCategory.Weapon).ToList();
 
+        public List<GameItem> Magics =>
+            Inventory.Where(i => i.Category is GameItem.ItemCategory.MagicScrolls).ToList();
+
         public List<GameItem> Consumables =>
             Inventory.Where(i => i.Category == GameItem.ItemCategory.Consumable).ToList();
 
@@ -131,12 +184,14 @@ namespace Engine.Models
         public event EventHandler OnKilled;
 
         protected LivingEntity(string name, int maxHitPoints, int currentHitPoints, int gold,
-            int level =1)
+            int maxMana = 0, int currentMana = 0, int level =1)
         {
             Name = name;
             MaxHitPoints = maxHitPoints;
             CurrentHitPoints = currentHitPoints;
             Gold = gold;
+            CurrentMagicPoints = currentMana;
+            MaxMana = maxMana;
             Level = level;
 
 
@@ -149,7 +204,7 @@ namespace Engine.Models
             CurrentWeapon.PerformAction(this, victim);
         }
 
-        public void useCurrentConsumable()
+        public void UseCurrentConsumable()
         {
             CurrentConsumable.PerformAction(this, this);
             RemoveItemFromInventory(CurrentConsumable);
@@ -164,6 +219,16 @@ namespace Engine.Models
                 CurrentHitPoints = 0;
                 RaiseOnKilledEvent();
             }
+        }
+
+        public void SpendMana(int manaCost)
+        {
+            CurrentMagicPoints -= manaCost;
+        }
+
+        public void FullManaRestore()
+        {
+            CurrentMagicPoints = MaxMana;
         }
 
         public void Heal(int hitPointsToHeal)
@@ -214,6 +279,7 @@ namespace Engine.Models
             }
 
             OnPropertyChanged(nameof(Weapons));
+            OnPropertyChanged(nameof(Magics));
             OnPropertyChanged(nameof(Consumables));
             OnPropertyChanged(nameof(HasConsumable));
         }
@@ -239,6 +305,7 @@ namespace Engine.Models
             }
 
             OnPropertyChanged(nameof(Weapons));
+            OnPropertyChanged(nameof(Magics));
             OnPropertyChanged(nameof(Consumables));
             OnPropertyChanged(nameof(HasConsumable));
         }

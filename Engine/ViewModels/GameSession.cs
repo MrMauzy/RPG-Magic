@@ -106,7 +106,7 @@ namespace Engine.ViewModels
             }
         }
 
-        public Magic CurrentSpell { get; set; }
+        //public Magic CurrentSpell { get; set; }
 
         public bool HasLocationNorth =>
             CurrentWorld.LocationAt(CurrentLocation.XCoordinate, 
@@ -140,9 +140,10 @@ namespace Engine.ViewModels
                 CurrentPlayer.AddItemToInventory(ItemFactory.CreateGameItem(1005));
             }
 
-            if (!CurrentPlayer.Spells.Any())
+            if (!CurrentPlayer.Magics.Any())
             {
-                CurrentPlayer.SpellList.Add(MagicFactory.CreateMagicSpell(8001));
+                CurrentPlayer.AddItemToInventory(ItemFactory.CreateGameItem(7001));
+                CurrentPlayer.AddItemToInventory(ItemFactory.CreateGameItem(7002));
             }
 
             CurrentPlayer.AddItemToInventory(ItemFactory.CreateGameItem(8001));
@@ -276,23 +277,13 @@ namespace Engine.ViewModels
             }
 
             // If there is no current spell it will give this error
-            if (CurrentSpell == null)
+            if (CurrentPlayer.CurrentSpell == null)
             {
                 RaiseMessage("You must select a spell, to do the magics.");
                 return;
             }
 
-            // Makes sure you have enough mana to cast spell
-            if (CurrentPlayer.MagicPoints >= CurrentSpell.ManaCost)
-            {
-                RaiseMessage($"You attack with a {CurrentSpell.Name} spell and do {CurrentSpell.MagicDamage} damage.");
-                CurrentMonster.TakeDamage(CurrentSpell.MagicDamage);
-                CurrentPlayer.SpendMana(CurrentSpell.ManaCost);
-            }
-            else
-            {
-                RaiseMessage($"You have insufficent mana to cast {CurrentSpell.Name}");
-            }
+            CurrentPlayer.UseCurrentSpell(CurrentMonster);
 
             // If monster if killed, collect rewards and loot
             if (CurrentMonster.IsDead)
@@ -336,7 +327,7 @@ namespace Engine.ViewModels
         {
             if (CurrentPlayer.CurrentConsumable != null)
             {
-                CurrentPlayer.useCurrentConsumable();
+                CurrentPlayer.UseCurrentConsumable();
             }
         }
 

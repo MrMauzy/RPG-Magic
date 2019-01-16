@@ -203,7 +203,7 @@
                 </TabItem>
 
                 <TabItem Header="Magic" x:Name="MagicTab">
-                    <DataGrid ItemsSource="{Binding CurrentPlayer.SpellList, Mode=OneWay}"
+                    <DataGrid ItemsSource="{Binding CurrentPlayer.Magics, Mode=OneWay}"
                               AutoGenerateColumns="False"
                               HeadersVisibility="Column">
                         <DataGrid.Columns>
@@ -317,10 +317,11 @@
                 </Button>
 
                 <ComboBox Grid.Row="2" Grid.Column="0"
-                          ItemsSource="{Binding CurrentPlayer.SpellList}"
-                          SelectedItem="{Binding CurrentSpell}"
+                          ItemsSource="{Binding CurrentPlayer.Magics}"
+                          SelectedItem="{Binding CurrentPlayer.CurrentSpell}"
                           DisplayMemberPath="Name"
                           SelectedValuePath="ID"/>
+                
                 <Button Grid.Row="2" Grid.Column="2"
                         Click="OnClick_MagicAttackMonster">
                     <StackPanel>

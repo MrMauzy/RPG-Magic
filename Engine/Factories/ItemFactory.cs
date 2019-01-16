@@ -76,7 +76,7 @@ namespace Engine.Factories
                         new Heal(gameItem,
                         node.AttributeAsInt("HitPointsHealed"));
                 }
-                else if(itemCategory == GameItem.ItemCategory.Magic)
+                else if(itemCategory == GameItem.ItemCategory.MagicScrolls)
                 {
                     gameItem.Action =
                         new Spells(gameItem,
@@ -97,7 +97,7 @@ namespace Engine.Factories
                 case "HealingItem":
                     return GameItem.ItemCategory.Consumable;
                 case "Magic":
-                    return GameItem.ItemCategory.Magic;
+                    return GameItem.ItemCategory.MagicScrolls;
                 default:
                     return GameItem.ItemCategory.Miscellaneous;
             }
