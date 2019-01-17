@@ -24,9 +24,10 @@ namespace Engine.Models
         public int Price { get; }
         public bool IsUnique { get; }
         public IAction Action { get; set; }
+        public int ManaCost { get; }
 
         public GameItem(ItemCategory category, int itemTypeID, string name, int price, 
-            bool isUnique = false, IAction action = null)
+            bool isUnique = false, IAction action = null, int manaCost = 0)
         {
             Category = category;
             ItemTypeID = itemTypeID;
@@ -34,6 +35,7 @@ namespace Engine.Models
             Price = price;
             IsUnique = isUnique;
             Action = action;
+            ManaCost = manaCost;
         }
 
         public void PerformAction(LivingEntity actor, LivingEntity victim)

@@ -60,8 +60,8 @@
             <Label Grid.Row="2" Grid.Column="0" Content="Hit Points:" Grid.ColumnSpan="2" Margin="10" Grid.RowSpan="2"/>
             <Label Grid.Row="2" Grid.Column="3" Content="{Binding CurrentPlayer.CurrentHitPoints}" Margin="10"
                    HorizontalContentAlignment="Center"/>
-            <Label Grid.Row="3" Grid.Column="0" Content="Magic:" Grid.ColumnSpan="2" Margin="10" Grid.RowSpan="2"/>
-            <Label Grid.Row="3" Grid.Column="3" Content="{Binding CurrentPlayer.MagicPoints}" Margin="10"
+            <Label Grid.Row="3" Grid.Column="0" Content="Mana:" Grid.ColumnSpan="2" Margin="10" Grid.RowSpan="2"/>
+            <Label Grid.Row="3" Grid.Column="3" Content="{Binding CurrentPlayer.CurrentMagicPoints}" Margin="10"
                    HorizontalContentAlignment="Center"/>
             <Label Grid.Row="4" Grid.Column="0" Content="XP:" Grid.ColumnSpan="2" Margin="10" Grid.RowSpan="2"/>
             <Label Grid.Row="4" Content="{Binding CurrentPlayer.ExperiencePoints}" 
@@ -182,7 +182,7 @@
                 <ImageBrush ImageSource="/Image/Textures/iron.png" />
             </Grid.Background>
 
-            <TabControl x:Name="PlayerDataTabControl">
+            <TabControl x:Name="PlayerDataTabControl" FontSize="15">
                 <TabItem Header="Inventory" x:Name="InventoryTab">
                     <DataGrid ItemsSource="{Binding CurrentPlayer.GroupedInventory, Mode=OneWay}"
                               AutoGenerateColumns="False"
@@ -203,7 +203,7 @@
                 </TabItem>
 
                 <TabItem Header="Magic" x:Name="MagicTab">
-                    <DataGrid ItemsSource="{Binding CurrentPlayer.Magics, Mode=OneWay}"
+                    <DataGrid ItemsSource="{Binding CurrentPlayer.MagicList, Mode=OneWay}"
                               AutoGenerateColumns="False"
                               HeadersVisibility="Column">
                         <DataGrid.Columns>

@@ -17,7 +17,7 @@ namespace Engine.Models
         private int _gold;
         private int _level;
         private int _maxMana;
-        private int _magicPoints;
+        private int _currentMagicPoints;
         private GameItem _currentWeapon;
         private GameItem _currentConsumable;
         private GameItem _currentSpell;
@@ -74,10 +74,10 @@ namespace Engine.Models
 
         public int CurrentMagicPoints
         {
-            get { return _magicPoints; }
+            get { return _currentMagicPoints; }
             set
             {
-                _magicPoints = value;
+                _currentMagicPoints = value;
                 OnPropertyChanged();
             }
         }
@@ -183,8 +183,8 @@ namespace Engine.Models
         public event EventHandler<string> OnActionPerformed;
         public event EventHandler OnKilled;
 
-        protected LivingEntity(string name, int maxHitPoints, int currentHitPoints, int gold,
-            int maxMana = 0, int currentMana = 0, int level =1)
+        protected LivingEntity(string name, int maxHitPoints, int currentHitPoints, int maxMana = 0,
+             int currentMana = 0, int gold = 0, int level = 1)
         {
             Name = name;
             MaxHitPoints = maxHitPoints;
@@ -192,6 +192,7 @@ namespace Engine.Models
             Gold = gold;
             CurrentMagicPoints = currentMana;
             MaxMana = maxMana;
+            CurrentMagicPoints = currentMana;
             Level = level;
 
 
