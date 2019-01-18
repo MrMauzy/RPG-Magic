@@ -27,7 +27,7 @@ namespace Engine.Models
         public int ManaCost { get; }
 
         public GameItem(ItemCategory category, int itemTypeID, string name, int price, 
-            bool isUnique = false, IAction action = null, int manaCost = 0)
+            bool isUnique = false, IAction action = null, int manaCost = 10)
         {
             Category = category;
             ItemTypeID = itemTypeID;

@@ -132,7 +132,7 @@ namespace Engine.ViewModels
 
         public GameSession()
         {
-            CurrentPlayer = new Player("Merek", "Wizard", 0, 20, 20, 9, 9, 101);
+            CurrentPlayer = new Player("Merek", "Wizard", 0, 20, 20, 10, 10, 101);
 
             if(!CurrentPlayer.Weapons.Any())
             {

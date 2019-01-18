@@ -26,10 +26,18 @@ namespace Engine.Actions
             string actorName = (actor is Player) ? "You" : $"The {actor.Name.ToLower()}";
             string victimName = (victim is Player) ? "you" : $"the {victim.Name.ToLower()}";
 
+            if(actor.CurrentMagicPoints < _mana)
+            {
+                ReportResults("You are out of mana. Use a potion or use your sword!");
+                return;
+            }
+
             if (damage > 0)
             {
                 ReportResults($"{actorName} hit {victimName} for {damage} point{((damage) > 1 ? "s" : "")}.");
                 victim.TakeDamage(damage);
+
+                actor.SpendMana(_mana);
             }
             else
             {

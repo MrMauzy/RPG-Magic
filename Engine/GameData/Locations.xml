@@ -13,6 +13,9 @@
     <Description><![CDATA[It looks like there is another prisoner in this cell.]]></Description>
     <Trader Name="Old Prisoner"/>
   </Location>
+  <Location X="-1" Y="0" Name="Empty Cell" ImageName="Cell.jpg">
+    <Description><![CDATA[It Ths is just an empty cell.]]></Description>
+  </Location>
   <Location X="0" Y="1" Name="Lobby" ImageName="Lobby.jpg">
     <Description><![CDATA[This is a lobby that has 4 different ways to go.]]></Description>
   </Location>
@@ -34,7 +37,13 @@
       <Monster ID="3" Percent="100"/>
     </Monsters>
   </Location>
-  <Location X="-1" Y="0" Name="Secret Room" ImageName="Entry.jpg">
+    <Location X="1" Y="2" Name="Cafeteria" ImageName="Cell.jpg">
+    <Description><![CDATA[I would never eat anything cooked here.]]></Description>
+    <Monsters>
+      <Monster ID="2" Percent="100"/>
+    </Monsters>
+  </Location>
+  <Location X="0" Y="-1" Name="Secret Room" ImageName="Entry.jpg">
     <Description><![CDATA[Hidden room, you shouldn't be here!.]]></Description>
   </Location>
 </Locations>
