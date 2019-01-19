@@ -14,16 +14,16 @@ namespace Engine.Factories
             switch(monsterID)
             {
                 case 1:
-                    Monster GreenGoo =
-                        new Monster("Green Goo", "GreenGoo.png", 5, 5, 5, 2);
+                    Monster WorriedAlligator =
+                        new Monster("Worried Alligator", "BWorriedAlligator.png", 5, 5, 5, 2);
 
-                    GreenGoo.CurrentWeapon = ItemFactory.CreateGameItem(1012);
+                    WorriedAlligator.CurrentWeapon = ItemFactory.CreateGameItem(1012);
 
-                    AddLootItem(GreenGoo, 8001, 50);
-                    AddLootItem(GreenGoo, 5003, 25);
-                    AddLootItem(GreenGoo, 5004, 25);
+                    AddLootItem(WorriedAlligator, 8001, 50);
+                    AddLootItem(WorriedAlligator, 5003, 25);
+                    AddLootItem(WorriedAlligator, 5004, 25);
 
-                    return GreenGoo;
+                    return WorriedAlligator;
 
                 case 2:
                     Monster Outlaw =

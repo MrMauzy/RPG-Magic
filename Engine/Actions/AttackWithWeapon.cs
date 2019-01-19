@@ -43,7 +43,7 @@ namespace Engine.Actions
 
             if(damage == 0)
             {
-                ReportResults($"You attacked, yet you missed {victim.Name.ToLower()}.");
+                ReportResults($"You attacked, yet you missed the {victim.Name.ToLower()}.");
             }
             else
             {

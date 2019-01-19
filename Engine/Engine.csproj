@@ -128,6 +128,8 @@
     <Content Include="GameData\Locations.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Resource Include="Images\Monsters\BWorriedAlligator.png" />
+    <Resource Include="Images\Monsters\WorriedAlligator.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

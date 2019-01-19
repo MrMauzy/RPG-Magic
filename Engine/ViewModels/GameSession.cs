@@ -132,7 +132,7 @@ namespace Engine.ViewModels
 
         public GameSession()
         {
-            CurrentPlayer = new Player("Merek", "Wizard", 0, 20, 20, 10, 10, 101);
+            CurrentPlayer = new Player("Unknown", "Magical", 0, 20, 20, 10, 10, 101);
 
             if(!CurrentPlayer.Weapons.Any())
             {
@@ -372,7 +372,7 @@ namespace Engine.ViewModels
             RaiseMessage("");
             RaiseMessage("You have been descimated and can no longer go on.");
 
-            CurrentLocation = CurrentWorld.LocationAt(1, 1);
+            CurrentLocation = CurrentWorld.LocationAt(-3, 1);
             CurrentPlayer.CompleteHeal();
             CurrentPlayer.FullManaRestore();
         }

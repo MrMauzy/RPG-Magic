@@ -107,6 +107,11 @@
                             <Setter Property="Margin" Value="0" />
                         </Style>
                     </RichTextBox.Resources>
+                    <FlowDocument>
+                        <Paragraph>Ouch! Your head feels like it is about to cave in.</Paragraph>
+                        <Paragraph>You open your eyes and realize you are in a prison cell and have no idea
+                        how you got there. But luckily the door seems to be open.</Paragraph>
+                    </FlowDocument>
                 </RichTextBox>
             </Border>
 
@@ -160,8 +165,6 @@
                     <Image Grid.Row="1"
                            HorizontalAlignment="Center"
                            VerticalAlignment="Center"
-                           Height="175"
-                           Width="175"
                            Source="{Binding CurrentMonster.ImageName}" />
 
                     <StackPanel Grid.Row="2"

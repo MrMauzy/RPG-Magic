@@ -54,6 +54,7 @@ namespace Engine.Models
 
             Quests = new ObservableCollection<QuestStatus>();
             Recipes = new ObservableCollection<Recipe>();
+            
         }
 
         public void AddExperience(int experiencePoints)
@@ -79,7 +80,7 @@ namespace Engine.Models
             {
                 MaxHitPoints = Level * 20;
 
-                MaxMana = Level * 9;
+                MaxMana = Level * 10;
 
                 OnLeveledUp?.Invoke(this, System.EventArgs.Empty);
             }
