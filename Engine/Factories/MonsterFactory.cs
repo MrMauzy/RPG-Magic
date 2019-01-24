@@ -19,9 +19,7 @@ namespace Engine.Factories
 
                     WorriedAlligator.CurrentWeapon = ItemFactory.CreateGameItem(1012);
 
-                    AddLootItem(WorriedAlligator, 8001, 50);
-                    AddLootItem(WorriedAlligator, 5003, 25);
-                    AddLootItem(WorriedAlligator, 5004, 25);
+                    AddLootItem(WorriedAlligator, 3005, 100);
 
                     return WorriedAlligator;
 
@@ -31,9 +29,7 @@ namespace Engine.Factories
 
                     Outlaw.CurrentWeapon = ItemFactory.CreateGameItem(1011);
 
-                    AddLootItem(Outlaw, 8001, 50);
-                    AddLootItem(Outlaw, 5005, 35);
-                    AddLootItem(Outlaw, 5006, 15);
+                    AddLootItem(Outlaw, 3003, 100);
 
                     return Outlaw;
 
@@ -43,10 +39,7 @@ namespace Engine.Factories
 
                     RobotScout.CurrentWeapon = ItemFactory.CreateGameItem(1010);
 
-                    AddLootItem(RobotScout, 8001, 50);
-                    AddLootItem(RobotScout, 5007, 30);
-                    AddLootItem(RobotScout, 8002, 15);
-                    AddLootItem(RobotScout, 9001, 5);
+                    AddLootItem(RobotScout, 3004, 100);
 
                     return RobotScout;
 

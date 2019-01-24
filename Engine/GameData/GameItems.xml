@@ -16,6 +16,9 @@
     <MiscellaneousItem ID="3000" Name="Sword Hilt" Price="2"/>
     <MiscellaneousItem ID="3001" Name="Iron Ingot" Price="2"/>
     <MiscellaneousItem ID="3002" Name="Steel Ingot" Price="3"/>
+    <MiscellaneousItem ID="3003" Name="Key Ring" Price="0"/>
+    <MiscellaneousItem ID="3004" Name="Broken Key" Price="0"/>
+    <MiscellaneousItem ID="3005" Name="Super Glue" Price="0"/>
     <MiscellaneousItem ID="5003" Name="Slime" Price="1"/>
     <MiscellaneousItem ID="5004" Name="Jar of Slobber" Price="2"/>
     <MiscellaneousItem ID="5005" Name="Shaving Cream" Price="1"/>

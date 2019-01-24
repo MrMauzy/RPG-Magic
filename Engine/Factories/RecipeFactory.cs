@@ -19,7 +19,14 @@ namespace Engine.Factories
             legendarySword.AddIngredient(3002, 1);
             legendarySword.AddOutputItem(1005, 1);
 
+            Recipe prisonKey = new Recipe(2, "Prison Key");
+            prisonKey.AddIngredient(3003, 1);
+            prisonKey.AddIngredient(3004, 1);
+            prisonKey.AddIngredient(3005, 1);
+            prisonKey.AddOutputItem(9001, 1);
+
             _recipes.Add(legendarySword);
+            _recipes.Add(prisonKey);
         }
 
         public static Recipe RecipeByID(int id)

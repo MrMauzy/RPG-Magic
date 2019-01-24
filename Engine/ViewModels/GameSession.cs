@@ -147,10 +147,18 @@ namespace Engine.ViewModels
             }
 
             CurrentPlayer.AddItemToInventory(ItemFactory.CreateGameItem(8001));
+
+            // Legendary Sword
             CurrentPlayer.LearnRecipe(RecipeFactory.RecipeByID(1));
             CurrentPlayer.AddItemToInventory(ItemFactory.CreateGameItem(3000));
             CurrentPlayer.AddItemToInventory(ItemFactory.CreateGameItem(3001));
             CurrentPlayer.AddItemToInventory(ItemFactory.CreateGameItem(3002));
+
+            // Prison Key
+            CurrentPlayer.LearnRecipe(RecipeFactory.RecipeByID(2));
+            CurrentPlayer.AddItemToInventory(ItemFactory.CreateGameItem(3003));
+            CurrentPlayer.AddItemToInventory(ItemFactory.CreateGameItem(3004));
+            CurrentPlayer.AddItemToInventory(ItemFactory.CreateGameItem(3005));
 
             CurrentWorld = WorldFactory.CreateWorld();
 

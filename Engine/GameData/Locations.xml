@@ -15,6 +15,9 @@
   </Location>
   <Location X="-1" Y="0" Name="Empty Cell" ImageName="Cell.jpg">
     <Description><![CDATA[It Ths is just an empty cell.]]></Description>
+    <Monsters>
+      <Monster ID="1" Percent="100"/>
+    </Monsters>
   </Location>
   <Location X="0" Y="1" Name="Lobby" ImageName="Lobby.jpg">
     <Description><![CDATA[This is a lobby that has 4 different ways to go.]]></Description>
@@ -22,28 +25,19 @@
   <Location X="0" Y="2" Name="Gym" ImageName="Cell.jpg">
     <Description><![CDATA[It looks like a gym for the prisoners, or more likely the gaurds.]]></Description>
     <Monsters>
-      <Monster ID="1" Percent="75"/>
+      <Monster ID="2" Percent="75"/>
     </Monsters>
   </Location>
   <Location X="1" Y="1" Name="Library" ImageName="Office.jpg">
     <Description><![CDATA[This is an interesting looking library.]]></Description>
     <Monsters>
-      <Monster ID="2" Percent="100"/>
-    </Monsters>
-  </Location>
-  <Location X="0" Y="0" Name="Locked Room" ImageName="Outside.jpg">
-    <Description><![CDATA[This room looks to have a locked door, I need some kind of key.]]></Description>
-    <Monsters>
       <Monster ID="3" Percent="100"/>
     </Monsters>
   </Location>
-    <Location X="1" Y="2" Name="Cafeteria" ImageName="Cell.jpg">
-    <Description><![CDATA[I would never eat anything cooked here.]]></Description>
-    <Monsters>
-      <Monster ID="2" Percent="100"/>
-    </Monsters>
+  <Location X="0" Y="0" Name="Room with Locked Door" ImageName="Outside.jpg">
+    <Description><![CDATA[This room looks to have a locked door, I need some kind of key.]]></Description>
   </Location>
-  <Location X="0" Y="-1" Name="Secret Room" ImageName="Entry.jpg">
-    <Description><![CDATA[Hidden room, you shouldn't be here!.]]></Description>
+  <Location X="0" Y="-1" Name="Make it Here to Win" ImageName="Entry.jpg">
+    <Description><![CDATA[You win!!!!.]]></Description>
   </Location>
 </Locations>
