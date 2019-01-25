@@ -375,7 +375,9 @@
                     </StackPanel>
                 </Button>
                 <Button Grid.Row="0" Grid.Column="2"
-                        Height="75" Width="75">
+                        Height="75" Width="75"
+                        Visibility="{Binding HasKey, Converter={StaticResource BooleanToVisibility}}"
+                        Click="OnClick_DisplayGameOverScreen">
                     <StackPanel>
                         <Image Source="/Image/Buttons/Key.png"/>
                     </StackPanel>

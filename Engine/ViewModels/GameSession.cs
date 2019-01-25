@@ -57,6 +57,7 @@ namespace Engine.ViewModels
                 OnPropertyChanged(nameof(HasLocationEast));
                 OnPropertyChanged(nameof(HasLocationWest));
                 OnPropertyChanged(nameof(HasLocationSouth));
+                OnPropertyChanged(nameof(HasKey));
 
                 CompleteQuestsAtLocation();
                 GivePlayerQuestsAtLocation();
@@ -129,6 +130,8 @@ namespace Engine.ViewModels
         public bool HasMonster => CurrentMonster != null;
 
         public bool HasTrader => CurrentTrader != null;
+
+        public bool HasKey => CurrentLocation == CurrentWorld.LocationAt(0, 0);
 
         #endregion
 

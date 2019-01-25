@@ -37,7 +37,4 @@
   <Location X="0" Y="0" Name="Room with Locked Door" ImageName="Outside.jpg">
     <Description><![CDATA[This room looks to have a locked door, I need some kind of key.]]></Description>
   </Location>
-  <Location X="0" Y="-1" Name="Make it Here to Win" ImageName="Entry.jpg">
-    <Description><![CDATA[You win!!!!.]]></Description>
-  </Location>
 </Locations>

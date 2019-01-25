@@ -55,9 +55,16 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="CustomConverters\FileToBitmapConverter.cs" />
+    <Compile Include="GameOverScreen.xaml.cs">
+      <DependentUpon>GameOverScreen.xaml</DependentUpon>
+    </Compile>
     <Compile Include="TradeScreen.xaml.cs">
       <DependentUpon>TradeScreen.xaml</DependentUpon>
     </Compile>
+    <Page Include="GameOverScreen.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

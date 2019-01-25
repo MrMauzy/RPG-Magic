@@ -101,6 +101,13 @@ namespace WPFUI
             }
         }
 
+        private void OnClick_DisplayGameOverScreen(object sender, RoutedEventArgs e)
+        {
+            GameOverScreen gameOverScreen = new GameOverScreen();
+            gameOverScreen.Owner = this;
+            gameOverScreen.ShowDialog();
+        }
+
         private void OnClick_Craft(object sender, RoutedEventArgs e)
         {
             Recipe recipe = ((FrameworkElement)sender).DataContext as Recipe;
