@@ -114,11 +114,13 @@ namespace Engine.ViewModels
 
         public bool HasLocationEast =>
             CurrentWorld.LocationAt(CurrentLocation.XCoordinate - 1,
-                    CurrentLocation.YCoordinate) != null;
+                    CurrentLocation.YCoordinate) != null
+                    && CurrentLocation != CurrentWorld.LocationAt(0, 0);
 
         public bool HasLocationWest =>
             CurrentWorld.LocationAt(CurrentLocation.XCoordinate + 1,
-                    CurrentLocation.YCoordinate) != null;
+                    CurrentLocation.YCoordinate) != null
+                    && CurrentLocation != CurrentWorld.LocationAt(-1, 0);
 
         public bool HasLocationSouth => 
             CurrentWorld.LocationAt(CurrentLocation.XCoordinate,
