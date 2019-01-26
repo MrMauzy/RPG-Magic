@@ -28,5 +28,11 @@ namespace WPFUI
         {
             App.Current.Shutdown();
         }
+
+        private void OnClick_RestartProgram(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
+            System.Diagnostics.Process.Start(Environment.GetCommandLineArgs()[0]);
+        }
     }
 }

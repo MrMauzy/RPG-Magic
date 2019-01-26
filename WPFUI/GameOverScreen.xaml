@@ -12,6 +12,7 @@
         Title="Game Over" Height="768" Width="1024">
     <Grid>
         <Button x:Name="exitButton" Content="Exit" HorizontalAlignment="Left" Margin="484,654,0,0" VerticalAlignment="Top" Width="75" Click="OnClick_CloseProgram"/>
+        <Button x:Name="restartButton" Content="Restart" HorizontalAlignment="Left" Margin="328,676,0,0" VerticalAlignment="Top" Width="75" Click="OnClick_RestartProgram"/>
 
     </Grid>
 </Window>

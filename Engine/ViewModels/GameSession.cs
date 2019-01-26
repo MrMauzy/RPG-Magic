@@ -7,6 +7,7 @@ using Engine.Models;
 using Engine.Factories;
 using Engine.EventArgs;
 using System.ComponentModel;
+using System.Windows;
 
 namespace Engine.ViewModels
 {
@@ -20,6 +21,7 @@ namespace Engine.ViewModels
         private Location _currentLocation;
         private Monster _currentMonster;
         private Trader _currentTrader;
+        private bool _gameOver = false;
 
         public World CurrentWorld { get; }
 
@@ -139,7 +141,7 @@ namespace Engine.ViewModels
         {
             CurrentPlayer = new Player("Unknown", "Magical", 0, 20, 20, 10, 10, 101);
 
-            if(!CurrentPlayer.Weapons.Any())
+            if (!CurrentPlayer.Weapons.Any())
             {
                 CurrentPlayer.AddItemToInventory(ItemFactory.CreateGameItem(1001));
                 CurrentPlayer.AddItemToInventory(ItemFactory.CreateGameItem(1005));
