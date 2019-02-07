@@ -78,7 +78,7 @@
         <Grid Grid.Row="1" Grid.Column="1">
 
             <Grid.Background>
-                <ImageBrush ImageSource="/Image/Textures/brick.jpg" />
+                <ImageBrush ImageSource="/Image/Textures/Office.jpg" />
             </Grid.Background>
 
             <Grid.RowDefinitions>
@@ -108,9 +108,9 @@
                         </Style>
                     </RichTextBox.Resources>
                     <FlowDocument>
-                        <Paragraph>Ouch! Your head feels like it is about to cave in.</Paragraph>
-                        <Paragraph>You open your eyes and realize you are in a prison cell and have no idea
-                        how you got there. But luckily the door seems to be open.</Paragraph>
+                        <Paragraph>You wake up to a loud rumbling and jump out of bed. </Paragraph>
+                        <Paragraph>You look around to find out you are in some sort of prison cell.
+                        "How did I get here?"</Paragraph>
                     </FlowDocument>
                 </RichTextBox>
             </Border>
@@ -128,6 +128,7 @@
 
                     <TextBlock Grid.Row="0"
                                HorizontalAlignment="Center"
+                               Foreground="Red"
                                Text="{Binding CurrentLocation.Name}"/>
 
                     <Image Grid.Row="1"
@@ -171,8 +172,10 @@
                                 Visibility="{Binding HasMonster, Converter={StaticResource BooleanToVisibility}}"
                                 HorizontalAlignment="Center"
                                 Orientation="Horizontal">
-                        <TextBlock>Current Hit Points:</TextBlock>
-                        <TextBlock Text="{Binding CurrentMonster.CurrentHitPoints}" />
+                        <TextBlock Foreground="Red" >Current Hit Points:</TextBlock>
+                        <TextBlock 
+                            Foreground="Red"
+                            Text="{Binding CurrentMonster.CurrentHitPoints}" />
                     </StackPanel>
                 </Grid>
             </Border>
@@ -182,7 +185,7 @@
         <Grid Grid.Row="2" Grid.Column="0">
 
             <Grid.Background>
-                <ImageBrush ImageSource="/Image/Textures/iron.png" />
+                <ImageBrush ImageSource="/Image/Textures/skull-crop.jpg" />
             </Grid.Background>
 
             <TabControl x:Name="PlayerDataTabControl" FontSize="15">
@@ -275,7 +278,7 @@
         <!-- Actions -->
         <Grid Grid.Row="2" Grid.Column="1">
             <Grid.Background>
-                <ImageBrush ImageSource="/Image/Textures/iron.png" />
+                <ImageBrush ImageSource="/Image/Textures/skull-crop.jpg" />
             </Grid.Background>
 
             <Grid.RowDefinitions>
@@ -307,6 +310,9 @@
                 </Grid.ColumnDefinitions>
 
                 <ComboBox Grid.Row="0" Grid.Column="0"
+                          IsEditable="True"
+                          IsReadOnly="True"
+                          Text="Weapons..."
                           ItemsSource="{Binding CurrentPlayer.Weapons}"
                           SelectedItem="{Binding CurrentPlayer.CurrentWeapon}"
                           DisplayMemberPath="Name"
@@ -320,6 +326,9 @@
                 </Button>
 
                 <ComboBox Grid.Row="2" Grid.Column="0"
+                          IsEditable="True"
+                          IsReadOnly="True"
+                          Text="Magic..."
                           ItemsSource="{Binding CurrentPlayer.MagicList}"
                           SelectedItem="{Binding CurrentPlayer.CurrentSpell}"
                           DisplayMemberPath="Name"
@@ -333,6 +342,9 @@
                 </Button>
 
                 <ComboBox Grid.Row="4" Grid.Column="0"
+                          IsEditable="True"
+                          IsReadOnly="True"
+                          Text="Consumables..."
                           ItemsSource="{Binding CurrentPlayer.Consumables}"
                           SelectedItem="{Binding CurrentPlayer.CurrentConsumable}"
                           DisplayMemberPath="Name"

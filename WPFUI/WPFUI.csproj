@@ -118,9 +118,6 @@
     <Resource Include="Image\BookPage.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Image\BlueBox.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Image\Buttons\Down.png" />
     <Resource Include="Image\Buttons\Left.png" />
     <Resource Include="Image\Buttons\Right.png" />
@@ -138,19 +135,10 @@
     <Resource Include="Image\Buttons\Magic.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Image\Textures\BrownTexture.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Image\Textures\brick.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <Folder Include="Image\Locations\" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Image\Textures\wood.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Image\Textures\iron.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Image\Buttons\NoDown.png" />
@@ -163,6 +151,12 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Image\Buttons\Consume.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\Textures\skull-crop.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\Textures\Office.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
