@@ -3,7 +3,7 @@
   <Location X="-3" Y="1" Name="Prison Cell" ImageName="StartingCell.png">
     <Description><![CDATA[This is your new home, get comfy.]]></Description>
   </Location>
-  <Location X="-2" Y="1" Name="Hallway" ImageName="Lobby.jpg">
+  <Location X="-2" Y="1" Name="Hallway" ImageName="Hallway.png">
     <Description><![CDATA[It looks like the hallway in some old abandoned dungeon.]]></Description>
     <Quests>
       <Quest ID="2"/>
