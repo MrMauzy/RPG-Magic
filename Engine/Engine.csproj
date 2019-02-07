@@ -129,6 +129,8 @@
     <Content Include="GameData\Locations.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Images\Locations\StartingCell.png" />
+    <Content Include="Images\Monsters\Monster2.gif" />
     <Resource Include="Images\Monsters\BWorriedAlligator.png" />
     <Resource Include="Images\Monsters\WorriedAlligator.png" />
   </ItemGroup>

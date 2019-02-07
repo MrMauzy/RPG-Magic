@@ -35,7 +35,7 @@ namespace Engine.Factories
 
                 case 3:
                     Monster RobotScout =
-                        new Monster("Robot Scout", "ScoutMachine.png", 50, 50, 100, 200);
+                        new Monster("Robot Scout", "ScoutMachine.png", 50, 51, 100, 200);
 
                     RobotScout.CurrentWeapon = ItemFactory.CreateGameItem(1010);
 

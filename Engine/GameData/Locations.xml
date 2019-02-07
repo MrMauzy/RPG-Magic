@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Locations RootImagePath="/Images/Locations/">
-  <Location X="-3" Y="1" Name="Prison Cell" ImageName="Cell.jpg">
+  <Location X="-3" Y="1" Name="Prison Cell" ImageName="StartingCell.png">
     <Description><![CDATA[This is your new home, get comfy.]]></Description>
   </Location>
   <Location X="-2" Y="1" Name="Hallway" ImageName="Lobby.jpg">
